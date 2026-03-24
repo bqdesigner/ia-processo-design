@@ -202,7 +202,8 @@
 
     .hero-nav.is-sticky {
       position: fixed;
-      top: 20px;
+      bottom: 24px;
+      top: auto;
       left: 50%;
       transform: translateX(-50%) translateY(0);
       z-index: 1000;
@@ -213,19 +214,22 @@
       border-radius: 100px;
       padding: 8px 10px;
       gap: 6px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35),
+      flex-wrap: nowrap;
+      max-width: calc(100vw - 48px);
+      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25),
                   inset 0 1px 0 rgba(255, 255, 255, 0.10);
       animation: stickyIn var(--duration-deliberate) var(--ease-out-expo) forwards;
     }
 
     @keyframes stickyIn {
-      from { opacity: 0; transform: translateX(-50%) translateY(-16px); }
-      to   { opacity: 1; transform: translateX(-50%) translateY(0);      }
+      from { opacity: 0; transform: translateX(-50%) translateY(16px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0);     }
     }
 
     .hero-nav.is-sticky .nav-pill {
-      font-size: 0.8125rem;
-      padding: 7px 15px;
+      font-size: 0.75rem;
+      padding: 7px 12px;
+      white-space: nowrap;
     }
 
     .nav-pill {
@@ -686,7 +690,7 @@
     .footer {
       background: #0a0a14;
       text-align: center;
-      padding: 60px 24px;
+      padding: 60px 24px 90px;
       border-top: 1px solid rgba(255,255,255,0.05);
     }
 
