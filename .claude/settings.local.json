@@ -8,7 +8,14 @@
       "Bash(where npx:*)",
       "Bash(where npm:*)",
       "Bash(mkdir -p ia-processo-design)",
-      "Bash(mv index.html ia-processo-design/index.html)"
+      "Bash(mv index.html ia-processo-design/index.html)",
+      "Bash(find C:Usersuser -maxdepth 3 -type f \\\\\\(-name .env* -o -name *mcp* \\\\\\))",
+      "Bash(git checkout:*)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/08746eea-2dd1-4695-a350-8173a27c43c6\" -o logo_vector1.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/7bd178b0-1e29-4c5d-a8bd-bed4498f9f46\" -o logo_vector2.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/e9e2d2fa-7e8a-4f6c-b304-8bda91e781cf\" -o logo_vector3.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/1787ad50-2089-42c7-a8de-10039409e40d\" -o scroll_indicator.svg)",
+      "Bash(git add:*)"
     ]
   }
 }
