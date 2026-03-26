@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bruno Queirós - AI Product Designer</title>
   <meta name="description" content="Com mais de 10 anos de experiência em design, transformo desafios em experiências que geram valor." />
+  <meta property="og:title" content="Bruno Queirós - AI Product Designer" />
+  <meta property="og:description" content="Com mais de 10 anos de experiência em design, transformo desafios em experiências que geram valor." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://portifolio-with-ia.vercel.app/" />
+  <meta property="og:image" content="https://portifolio-with-ia.vercel.app/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bruno Queirós - AI Product Designer" />
+  <meta name="twitter:description" content="Com mais de 10 anos de experiência em design, transformo desafios em experiências que geram valor." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fff'/%3E%3Cg transform='translate(16,12)'%3E%3Cpath d='M8.51 8.53c.01.48-.09.95-.3 1.38a3.6 3.6 0 01-.81 1.09c-.34.31-.74.55-1.17.71-.45.17-.92.26-1.4.26L0 11.95V0h4.3c.49 0 .98.07 1.44.23.43.14.82.37 1.16.67.33.3.6.67.77 1.08.19.45.28.94.28 1.43 0 .45-.1.89-.3 1.3a3.2 3.2 0 01-.79 1.06c.26.13.49.3.69.49.2.2.38.42.52.67.14.24.25.5.33.77.07.27.11.55.11.83zM5.66 3.45c.01-.26-.05-.52-.17-.75a1.5 1.5 0 00-.44-.58 1.7 1.7 0 00-.64-.31 2.8 2.8 0 00-.75-.1H2.32v3.29l.67.01h.69c.25 0 .5-.03.74-.09.23-.05.45-.15.64-.28.18-.13.34-.3.44-.5.12-.23.17-.48.17-.72zm.45 4.94c0-.24-.05-.47-.14-.69a1.5 1.5 0 00-.39-.53 1.7 1.7 0 00-.57-.34 2.5 2.5 0 00-.7-.12c-.34-.01-.67-.01-1-.01s-.67 0-1 0v3.3h1.73c.25 0 .5-.03.74-.09.24-.06.46-.15.65-.29.19-.13.35-.31.47-.51.12-.23.18-.48.17-.72z' fill='%23191819'/%3E%3Crect x='15' y='6' width='1.6' height='26.2' rx='.8' transform='rotate(44.92 15.8 19.1)' fill='%23191819'/%3E%3Cg transform='translate(19.5,27.5)'%3E%3Cpath d='M12.59 6.2c0 .68-.11 1.36-.34 2.01-.22.63-.55 1.22-.96 1.74l1.19 1.18-1.37 1.37-1.22-1.24a5.9 5.9 0 01-1.67.84 6.3 6.3 0 01-1.93.3c-.84.01-1.67-.16-2.44-.49a6.1 6.1 0 01-2-1.33 6.1 6.1 0 01-1.35-1.96A6.2 6.2 0 010 6.2c0-.83.17-1.65.49-2.41a6.1 6.1 0 011.35-1.97A6.1 6.1 0 013.85.49 6.3 6.3 0 016.29 0c.84 0 1.67.17 2.45.49a6.1 6.1 0 012.01 1.33 6.1 6.1 0 011.35 1.97c.33.76.5 1.58.49 2.41zm-2.26 0c0-.53-.11-1.06-.32-1.55a4.1 4.1 0 00-.87-1.28 4.1 4.1 0 00-1.28-.87 4.1 4.1 0 00-1.57-.32c-.54 0-1.07.11-1.57.32-.48.21-.92.5-1.28.87a4.1 4.1 0 00-.87 1.28 4.1 4.1 0 00-.32 1.55c0 .53.11 1.06.32 1.55.2.48.5.92.87 1.28.37.37.81.66 1.28.87.49.22 1.03.32 1.57.32.37 0 .73-.05 1.08-.15.34-.1.67-.24.98-.42l-1.12-1.09 1.37-1.37 1.11 1.14a3.9 3.9 0 00.63-2.12z' fill='%23191819'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
@@ -48,6 +56,18 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     /* ===== HEADER ===== */
@@ -303,7 +323,8 @@
 
     .scroll-indicator {
       position: absolute;
-      left: 101px;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 80px;
       width: 24px;
       height: 52px;
@@ -317,8 +338,8 @@
     }
 
     @keyframes scrollBounce {
-      0%, 100% { transform: translateY(0); opacity: 1; }
-      50% { transform: translateY(10px); opacity: 0.6; }
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50% { transform: translateX(-50%) translateY(10px); opacity: 0.6; }
     }
 
     /* ===== CONTENT / PROJECTS ===== */
@@ -338,7 +359,7 @@
       overflow: hidden;
       position: relative;
       height: calc(100vh - 96px);
-      cursor: pointer;
+      cursor: default;
     }
 
     .project-card img.project-img {
@@ -397,6 +418,11 @@
       font-weight: 700;
       letter-spacing: -1.92px;
       line-height: 1;
+      margin: 0;
+    }
+
+    .footer-cta-title {
+      margin: 0;
     }
 
     .project-desc {
@@ -404,7 +430,7 @@
       font-weight: 500;
       letter-spacing: -0.96px;
       margin-top: 16px;
-      line-height: 1;
+      line-height: 1.4;
     }
 
     .project-action {
@@ -681,7 +707,6 @@
       }
 
       .scroll-indicator {
-        left: 24px;
         bottom: 40px;
       }
 
@@ -709,6 +734,11 @@
 
       .project-year {
         font-size: 16px;
+      }
+
+      .project-coming-soon {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .project-info {
@@ -783,6 +813,7 @@
 
   <!-- HERO -->
   <section class="hero">
+    <h1 class="sr-only">Bruno Queirós - AI Product Designer</h1>
     <div class="hero-text" id="heroText">
       <p class="typewriter-line" data-text="Com mais de 10 anos de experiência em design, transformo desafios em experiências que geram valor."></p>
       <br />
@@ -802,11 +833,11 @@
 
     <!-- WiseChat -->
     <div class="project-card" style="background: #1D1F2E;">
-      <img class="project-img" src="assets/job_wisechat.png" alt="WiseChat" />
+      <img class="project-img" src="assets/job_wisechat.png" alt="Interface do WiseChat com painel de conversas e gestão de equipes" />
       <div class="project-blur" style="--blur-color: rgba(29,31,46,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(29,31,46,0.7);">
         <div>
-          <div class="project-name">WiseChat</div>
+          <h2 class="project-name">WiseChat</h2>
           <div class="project-desc">Construindo uma ferramenta totalmente integrada e personalizável.</div>
         </div>
         <div class="project-action">
@@ -819,11 +850,11 @@
 
     <!-- Frete.com (Gamificação) -->
     <div class="project-card" style="background: #E9ECEF;">
-      <img class="project-img" src="assets/job_fb.png" alt="Frete.com" />
+      <img class="project-img" src="assets/job_fb.png" alt="Plataforma Frete.com com ranking de gamificação e métricas de operadores" />
       <div class="project-blur" style="--blur-color: rgba(233,236,239,0.8);"></div>
       <div class="project-info project-info--light" style="background: rgba(233,236,239,0.7);">
         <div>
-          <div class="project-name">Frete.com</div>
+          <h2 class="project-name">Frete.com</h2>
           <div class="project-desc">Como a Gamificação foi trabalhada dentro de uma plataforma B2B.</div>
         </div>
         <div class="project-action">
@@ -834,28 +865,13 @@
       </div>
     </div>
 
-    <!-- FOOTER CTA -->
-    <section class="footer-cta" id="contato">
-      <div>
-        <div class="footer-cta-title">Bora trabalhar juntos?</div>
-        <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
-      </div>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/itsbrunoqueiros/" target="_blank">LinkedIn</a>
-        <span class="footer-links-dot">&bull;</span>
-        <a href="https://dribbble.com/itsbrunoqueiros" target="_blank">Dribbble</a>
-        <span class="footer-links-dot">&bull;</span>
-        <a href="https://medium.com/@brunoqueiros" target="_blank">MEDIUM</a>
-      </div>
-    </section>
-
     <!-- WiseApp -->
     <div class="project-card" style="background: #02316A;">
-      <img class="project-img" src="assets/job_wiseapp.png" alt="WiseApp" />
+      <img class="project-img" src="assets/job_wiseapp.png" alt="App WiseApp com interface de roteirização para motoristas" />
       <div class="project-blur" style="--blur-color: rgba(2,49,106,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(2,49,106,0.7);">
         <div>
-          <div class="project-name">WiseApp</div>
+          <h2 class="project-name">WiseApp</h2>
           <div class="project-desc">App de roteirização para motoristas transportar de forma mais inteligente.</div>
         </div>
         <div class="project-action">
@@ -868,11 +884,11 @@
 
     <!-- Frete.com VIP -->
     <div class="project-card" style="background: #191819;">
-      <img class="project-img" src="assets/job_fb-vip.png" alt="Frete.com VIP" />
+      <img class="project-img" src="assets/job_fb-vip.png" alt="Dashboard do Frete.com VIP com painel SaaS de gestão de fretes" />
       <div class="project-blur" style="--blur-color: rgba(25,24,25,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(25,24,25,0.7);">
         <div>
-          <div class="project-name">Frete.com</div>
+          <h2 class="project-name">Frete.com</h2>
           <div class="project-desc">Construindo um SaaS que gera receita de 100MM/ano.</div>
         </div>
         <div class="project-action">
@@ -885,11 +901,11 @@
 
     <!-- Nav/Dasa -->
     <div class="project-card" style="background: #0037FF;">
-      <img class="project-img" src="assets/job_navdasa.png" alt="Nav/Dasa" />
+      <img class="project-img" src="assets/job_navdasa.png" alt="Landing page Nav/Dasa com apresentação das ferramentas NAV Pro para médicos" />
       <div class="project-blur" style="--blur-color: rgba(0,55,255,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(0,55,255,0.7);">
         <div>
-          <div class="project-name">Nav/Dasa</div>
+          <h2 class="project-name">Nav/Dasa</h2>
           <div class="project-desc">Landing page desenvolvida para explicar as ferramentas do NAV Pro para médicos.</div>
         </div>
         <div class="project-action">
@@ -899,6 +915,21 @@
         </div>
       </div>
     </div>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta" id="contato">
+      <div>
+        <h2 class="footer-cta-title">Bora trabalhar juntos?</h2>
+        <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/itsbrunoqueiros/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span class="footer-links-dot">&bull;</span>
+        <a href="https://dribbble.com/itsbrunoqueiros" target="_blank" rel="noopener noreferrer">Dribbble</a>
+        <span class="footer-links-dot">&bull;</span>
+        <a href="https://medium.com/@brunoqueiros" target="_blank" rel="noopener noreferrer">Medium</a>
+      </div>
+    </section>
 
     <!-- Spacer to allow last card to fully stick to top -->
     <div class="parallax-spacer" aria-hidden="true"></div>
