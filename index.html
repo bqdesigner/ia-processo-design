@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bruno Queiros — Designer</title>
+  <title>Bruno Queirós - AI Product Designer</title>
   <meta name="description" content="Com mais de 10 anos de experiência em design, transformo desafios em experiências que geram valor." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fff'/%3E%3Cg transform='translate(16,12)'%3E%3Cpath d='M8.51 8.53c.01.48-.09.95-.3 1.38a3.6 3.6 0 01-.81 1.09c-.34.31-.74.55-1.17.71-.45.17-.92.26-1.4.26L0 11.95V0h4.3c.49 0 .98.07 1.44.23.43.14.82.37 1.16.67.33.3.6.67.77 1.08.19.45.28.94.28 1.43 0 .45-.1.89-.3 1.3a3.2 3.2 0 01-.79 1.06c.26.13.49.3.69.49.2.2.38.42.52.67.14.24.25.5.33.77.07.27.11.55.11.83zM5.66 3.45c.01-.26-.05-.52-.17-.75a1.5 1.5 0 00-.44-.58 1.7 1.7 0 00-.64-.31 2.8 2.8 0 00-.75-.1H2.32v3.29l.67.01h.69c.25 0 .5-.03.74-.09.23-.05.45-.15.64-.28.18-.13.34-.3.44-.5.12-.23.17-.48.17-.72zm.45 4.94c0-.24-.05-.47-.14-.69a1.5 1.5 0 00-.39-.53 1.7 1.7 0 00-.57-.34 2.5 2.5 0 00-.7-.12c-.34-.01-.67-.01-1-.01s-.67 0-1 0v3.3h1.73c.25 0 .5-.03.74-.09.24-.06.46-.15.65-.29.19-.13.35-.31.47-.51.12-.23.18-.48.17-.72z' fill='%23191819'/%3E%3Crect x='15' y='6' width='1.6' height='26.2' rx='.8' transform='rotate(44.92 15.8 19.1)' fill='%23191819'/%3E%3Cg transform='translate(19.5,27.5)'%3E%3Cpath d='M12.59 6.2c0 .68-.11 1.36-.34 2.01-.22.63-.55 1.22-.96 1.74l1.19 1.18-1.37 1.37-1.22-1.24a5.9 5.9 0 01-1.67.84 6.3 6.3 0 01-1.93.3c-.84.01-1.67-.16-2.44-.49a6.1 6.1 0 01-2-1.33 6.1 6.1 0 01-1.35-1.96A6.2 6.2 0 010 6.2c0-.83.17-1.65.49-2.41a6.1 6.1 0 011.35-1.97A6.1 6.1 0 013.85.49 6.3 6.3 0 016.29 0c.84 0 1.67.17 2.45.49a6.1 6.1 0 012.01 1.33 6.1 6.1 0 011.35 1.97c.33.76.5 1.58.49 2.41zm-2.26 0c0-.53-.11-1.06-.32-1.55a4.1 4.1 0 00-.87-1.28 4.1 4.1 0 00-1.28-.87 4.1 4.1 0 00-1.57-.32c-.54 0-1.07.11-1.57.32-.48.21-.92.5-1.28.87a4.1 4.1 0 00-.87 1.28 4.1 4.1 0 00-.32 1.55c0 .53.11 1.06.32 1.55.2.48.5.92.87 1.28.37.37.81.66 1.28.87.49.22 1.03.32 1.57.32.37 0 .73-.05 1.08-.15.34-.1.67-.24.98-.42l-1.12-1.09 1.37-1.37 1.11 1.14a3.9 3.9 0 00.63-2.12z' fill='%23191819'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
   <style>
@@ -19,6 +20,16 @@
       --color-muted: #ADB5BD;
       --color-accent: #FF6768;
       --font: 'Satoshi', 'Inter', system-ui, sans-serif;
+    }
+
+    ::selection {
+      background: #191819;
+      color: #FFFFFF;
+    }
+
+    ::-moz-selection {
+      background: #191819;
+      color: #FFFFFF;
     }
 
     html {
@@ -106,7 +117,7 @@
       border: 1px solid var(--color-low);
       border-radius: 500px;
       padding: 24px;
-      font-size: 20px;
+      font-size: 16px;
       text-transform: uppercase;
       transition: opacity 0.3s, transform 0.3s;
     }
@@ -128,7 +139,7 @@
 
     .nav-divider {
       color: var(--color-muted);
-      font-size: 24px;
+      font-size: 18px;
     }
 
     /* ===== HAMBURGER BUTTON ===== */
@@ -182,12 +193,15 @@
       align-items: center;
       justify-content: center;
       gap: 32px;
-      font-size: 32px;
+      font-size: clamp(20px, 5vw, 32px);
       font-weight: 500;
       text-transform: uppercase;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
+      padding: 0 24px;
+      text-align: center;
+      word-break: break-word;
     }
 
     .mobile-overlay--open {
@@ -213,6 +227,16 @@
       font-size: 20px;
       color: var(--color-mid);
       text-decoration: underline;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .header--hidden .logo {
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+    }
+
+    .logo {
       transition: opacity 0.3s, transform 0.3s;
     }
 
@@ -302,17 +326,18 @@
       display: flex;
       flex-direction: column;
       gap: 80px;
-      align-items: flex-end;
-      padding: 64px 96px;
+      align-items: center;
+      padding: 64px 48px;
     }
 
     /* ===== PROJECT CARD ===== */
     .project-card {
       width: 100%;
+      max-width: calc(100vw - 96px);
       border-radius: 24px;
       overflow: hidden;
       position: relative;
-      height: 800px;
+      height: calc(100vh - 96px);
       cursor: pointer;
     }
 
@@ -322,7 +347,7 @@
       left: 48px;
       width: calc(100% - 96px);
       height: calc(100% - 48px);
-      object-fit: cover;
+      object-fit: contain;
       object-position: center top;
       pointer-events: none;
       border-radius: 24px;
@@ -331,13 +356,6 @@
 
     .project-card:hover img.project-img {
       transform: scale(1.04);
-    }
-
-    .project-card--small img.project-img {
-      top: 48px;
-      left: 48px;
-      width: calc(100% - 96px);
-      height: calc(100% - 48px);
     }
 
     /* Blur overlay */
@@ -446,10 +464,15 @@
     /* ===== FOOTER CTA ===== */
     .footer-cta {
       width: 100%;
+      max-width: calc(100vw - 96px);
+      height: calc(100vh - 96px);
       display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      padding: 250px 0 250px 96px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px;
+      border-radius: 24px;
     }
 
     .footer-cta-title {
@@ -483,7 +506,7 @@
       gap: 24px;
       font-size: 20px;
       text-transform: uppercase;
-      padding-bottom: 28px;
+      margin-top: 48px;
       flex-shrink: 0;
     }
 
@@ -501,27 +524,57 @@
       font-size: 24px;
     }
 
-    /* ===== SECTION TITLE ===== */
-    .section-title {
-      width: 100%;
-      font-size: 64px;
-      font-weight: 500;
-      letter-spacing: -3.84px;
-      line-height: 1;
-      color: var(--color-mid);
-      padding-left: 96px;
-    }
-
-    /* ===== PROJECT ROWS ===== */
-    .project-row {
-      width: 100%;
+    /* ===== EM BREVE LABEL ===== */
+    .project-coming-soon {
       display: flex;
-      gap: 80px;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      margin-top: 16px;
     }
 
-    .project-row .project-card {
-      flex: 1;
-      min-width: 0;
+    .project-coming-soon svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
+
+    .project-card:hover .project-coming-soon {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== PARALLAX STACKING ===== */
+    .content {
+      gap: 0;
+    }
+
+    .content > .project-card,
+    .content > .footer-cta {
+      position: sticky;
+      margin-bottom: 80px;
+    }
+
+    .content > .project-card {
+      box-shadow: 0 -20px 60px rgba(0,0,0,0.15);
+    }
+
+    .content > .footer-cta {
+      background: var(--color-light);
+      box-shadow: 0 -20px 60px rgba(0,0,0,0.08);
+      border-radius: 24px;
+    }
+
+    .parallax-spacer {
+      height: calc(100vh - 200px);
+      pointer-events: none;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -533,19 +586,15 @@
 
       .content {
         padding: 48px;
-        gap: 48px;
       }
 
-      .footer-cta {
-        padding-left: 48px;
-      }
-
-      .section-title {
-        padding-left: 48px;
+      .content > .project-card,
+      .content > .footer-cta {
+        margin-bottom: 48px;
       }
 
       .project-card {
-        height: 600px;
+        height: calc(100vh - 96px);
       }
 
       .footer-cta-title,
@@ -554,14 +603,9 @@
         letter-spacing: -2px;
       }
 
-      .section-title {
-        font-size: 42px;
-        letter-spacing: -2px;
-      }
-
       .footer-cta {
-        padding-top: 120px;
-        padding-bottom: 120px;
+        height: calc(100vh - 96px);
+        padding: 48px;
       }
     }
 
@@ -608,19 +652,16 @@
 
       .content {
         padding: 32px 24px;
-        gap: 32px;
       }
 
-      .footer-cta {
-        padding-left: 24px;
-      }
-
-      .section-title {
-        padding-left: 24px;
+      .content > .project-card,
+      .content > .footer-cta {
+        margin-bottom: 32px;
       }
 
       .project-card {
         height: 400px;
+        max-width: 100%;
       }
 
       .project-name {
@@ -640,19 +681,13 @@
       }
 
       .footer-cta {
-        flex-direction: column;
-        gap: 48px;
-        padding-top: 80px;
-        padding-bottom: 80px;
+        height: 400px;
+        max-width: 100%;
+        padding: 32px 24px;
       }
 
       .footer-cta-title,
       .footer-cta-email {
-        font-size: 28px;
-        letter-spacing: -1px;
-      }
-
-      .section-title {
         font-size: 28px;
         letter-spacing: -1px;
       }
@@ -662,10 +697,6 @@
         padding-bottom: 0;
       }
 
-      .project-row {
-        flex-direction: column;
-        gap: 32px;
-      }
     }
   </style>
 </head>
@@ -746,6 +777,7 @@
         <div class="project-action">
           <div class="project-year">// 2025</div>
           <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-coming-soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Em breve</div>
         </div>
       </div>
     </div>
@@ -762,6 +794,7 @@
         <div class="project-action">
           <div class="project-year">// 2025</div>
           <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-coming-soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Em breve</div>
         </div>
       </div>
     </div>
@@ -793,6 +826,7 @@
         <div class="project-action">
           <div class="project-year">// 2024</div>
           <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-coming-soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Em breve</div>
         </div>
       </div>
     </div>
@@ -809,14 +843,12 @@
         <div class="project-action">
           <div class="project-year">// 2023</div>
           <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-coming-soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Em breve</div>
         </div>
       </div>
     </div>
 
-    <!-- OUTROS TRABALHOS -->
-    <h2 class="section-title">Outros Trabalhos</h2>
-
-    <!-- Nav/Dasa - Full width (same as main cards) -->
+    <!-- Nav/Dasa -->
     <div class="project-card" style="background: #0037FF;">
       <img class="project-img" src="assets/job_navdasa.png" alt="Nav/Dasa" />
       <div class="project-blur" style="--blur-color: rgba(0,55,255,0.8);"></div>
@@ -828,41 +860,13 @@
         <div class="project-action">
           <div class="project-year">// 2022</div>
           <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-coming-soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Em breve</div>
         </div>
       </div>
     </div>
 
-    <!-- Bant + BeeBox - Side by side -->
-    <div class="project-row">
-      <div class="project-card project-card--small" style="background: #DFE5E0;">
-        <img class="project-img" src="assets/job_bant.png" alt="Bant" />
-        <div class="project-blur" style="--blur-color: rgba(222,228,223,0.8);"></div>
-        <div class="project-info project-info--light" style="background: rgba(222,228,223,0.7);">
-          <div>
-            <div class="project-name">Bant</div>
-            <div class="project-desc">Construindo um SaaS que gera receita de 100MM/ano.</div>
-          </div>
-          <div class="project-action">
-            <div class="project-year">// 2021</div>
-            <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card project-card--small" style="background: #7066BA;">
-        <img class="project-img" src="assets/job_beebox.png" alt="BeeBox" />
-        <div class="project-blur" style="--blur-color: rgba(108,99,179,0.8);"></div>
-        <div class="project-info project-info--dark" style="background: rgba(108,99,179,0.7);">
-          <div>
-            <div class="project-name">BeeBox</div>
-            <div class="project-desc">Construindo um SaaS que gera receita de 100MM/ano.</div>
-          </div>
-          <div class="project-action">
-            <div class="project-year">// 2020</div>
-            <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Spacer to allow last card to fully stick to top -->
+    <div class="parallax-spacer" aria-hidden="true"></div>
 
   </main>
 
@@ -975,6 +979,28 @@
 
       setTimeout(showNext, delay);
     })();
+
+    // Parallax stacking: assign sticky top + z-index to content children
+    (function() {
+      var content = document.querySelector('.content');
+      if (!content) return;
+      var children = content.querySelectorAll('.project-card, .footer-cta');
+      var stickyTop = 48;
+      var step = 8;
+
+      for (var i = 0; i < children.length; i++) {
+        children[i].style.top = stickyTop + (i * step) + 'px';
+        children[i].style.zIndex = i + 1;
+      }
+    })();
+
+    // Disable link navigation on project cards (cases not ready)
+    document.querySelectorAll('.project-card').forEach(function(card) {
+      card.style.cursor = 'default';
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+      });
+    });
   </script>
 
 </body>
