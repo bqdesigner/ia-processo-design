@@ -381,7 +381,7 @@
     .project-card {
       width: 100%;
       max-width: calc(100vw - 96px);
-      border-radius: 24px;
+      border-radius: 12px;
       overflow: hidden;
       position: relative;
       height: calc(100vh - 96px);
@@ -397,7 +397,7 @@
       object-fit: cover;
       object-position: left top;
       pointer-events: none;
-      border-radius: 24px 0 0 0;
+      border-radius: 12px 0 0 0;
       transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
@@ -524,7 +524,7 @@
       justify-content: center;
       text-align: center;
       padding: 48px;
-      border-radius: 24px;
+      border-radius: 12px;
     }
 
     .footer-cta-top {
@@ -635,6 +635,53 @@
       transform: translateY(0);
     }
 
+    /* ===== LOGO MARQUEE ===== */
+    .logo-marquee {
+      margin-top: 160px;
+      margin-bottom: 160px;
+      overflow: hidden;
+      width: 100vw;
+      position: relative;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .logo-marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      width: max-content;
+      will-change: transform;
+    }
+
+    .logo-marquee-track img {
+      height: 32px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+      opacity: 0.45;
+      transition: opacity 0.3s ease;
+    }
+
+    .logo-marquee:hover .logo-marquee-track img {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .logo-marquee {
+        margin-top: 100px;
+        margin-bottom: 100px;
+      }
+
+      .logo-marquee-track {
+        gap: 36px;
+      }
+
+      .logo-marquee-track img {
+        height: 24px;
+      }
+    }
+
     /* ===== PARALLAX STACKING ===== */
     .content {
       gap: 0;
@@ -643,7 +690,7 @@
     .content > .project-card,
     .content > .footer-cta {
       position: sticky;
-      margin-bottom: 80px;
+      margin-bottom: 160px;
     }
 
     .content > .project-card {
@@ -653,7 +700,7 @@
     .content > .footer-cta {
       background: var(--color-light);
       box-shadow: 0 -20px 60px rgba(0,0,0,0.08);
-      border-radius: 24px;
+      border-radius: 12px;
     }
 
     .parallax-spacer {
@@ -709,7 +756,7 @@
 
       .content > .project-card,
       .content > .footer-cta {
-        margin-bottom: 48px;
+        margin-bottom: 100px;
       }
 
       .project-card {
@@ -744,6 +791,18 @@
 
       .hamburger {
         display: flex;
+        background: none;
+        border-radius: 500px;
+        padding: 12px;
+        box-shadow: none;
+        width: auto;
+        height: auto;
+        transition: background 0.3s, box-shadow 0.3s;
+      }
+
+      .header--scrolled .hamburger {
+        background: var(--color-light);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
       }
 
       .mobile-overlay {
@@ -769,12 +828,12 @@
       }
 
       .content {
-        padding: 32px 24px;
+        padding: 32px 12px;
       }
 
       .content > .project-card,
       .content > .footer-cta {
-        margin-bottom: 32px;
+        margin-bottom: 72px;
       }
 
       .project-card {
@@ -910,6 +969,19 @@
         <path d="M1.5 21.5L13.5 33.5L25.5 21.5" stroke="#ADB5BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M1.5 41.5L13.5 53.5L25.5 41.5" stroke="#6C757D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
+    </div>
+  </section>
+
+  <!-- LOGO MARQUEE -->
+  <section class="logo-marquee" aria-label="Empresas parceiras">
+    <div class="logo-marquee-track" id="marqueeTrack">
+      <img src="assets/logos/logo-agile.svg" alt="Agile" />
+      <img src="assets/logos/logo-cnn.svg" alt="CNN" />
+      <img src="assets/logos/logo-dasa.svg" alt="Dasa" />
+      <img src="assets/logos/logo-fb.svg" alt="Fretebras" />
+      <img src="assets/logos/logo-rakuten.svg" alt="Rakuten" />
+      <img src="assets/logos/logo-stone.svg" alt="Stone" />
+      <img src="assets/logos/logo-wisechat.svg" alt="WiseChat" />
     </div>
   </section>
 
@@ -1216,6 +1288,82 @@
       }, { threshold: 0.5 });
 
       observer.observe(footerEl);
+    })();
+
+    // Logo marquee — infinite scroll, reverses on scroll up, pauses on hover
+    (function() {
+      var track = document.getElementById('marqueeTrack');
+      if (!track) return;
+
+      // Duplicate logos enough times to fill viewport seamlessly
+      var originalHTML = track.innerHTML;
+      // Add enough copies for seamless looping (4 copies total)
+      track.innerHTML = originalHTML + originalHTML + originalHTML + originalHTML;
+
+      var speed = 0.5; // px per frame
+      var paused = false;
+      var position = 0;
+      var scrollDirection = -1; // -1 = scrolling down (marquee goes right), 1 = scrolling up (marquee goes left)
+      var prevScrollY = window.scrollY;
+
+      // Detect scroll direction
+      window.addEventListener('scroll', function() {
+        var currentY = window.scrollY;
+        if (currentY > prevScrollY) {
+          scrollDirection = -1; // scrolling down → marquee moves right
+        } else if (currentY < prevScrollY) {
+          scrollDirection = 1; // scrolling up → marquee moves left
+        }
+        prevScrollY = currentY;
+      }, { passive: true });
+
+      // Pause on hover
+      track.parentElement.addEventListener('mouseenter', function() {
+        paused = true;
+      });
+      track.parentElement.addEventListener('mouseleave', function() {
+        paused = false;
+      });
+
+      // Calculate the width of one set of logos (1/4 of total track)
+      var singleSetWidth = 0;
+
+      function measureSet() {
+        var items = track.querySelectorAll('img');
+        var perSet = items.length / 4;
+        singleSetWidth = 0;
+        for (var i = 0; i < perSet; i++) {
+          singleSetWidth += items[i].offsetWidth + 48; // 48 = gap
+        }
+      }
+
+      function animate() {
+        if (!paused) {
+          position -= speed * scrollDirection;
+
+          // Seamless wrap: reset when we've scrolled one full set
+          if (position <= -singleSetWidth) {
+            position += singleSetWidth;
+          } else if (position >= 0) {
+            position -= singleSetWidth;
+          }
+
+          track.style.transform = 'translate3d(' + position + 'px, 0, 0)';
+        }
+        requestAnimationFrame(animate);
+      }
+
+      // Wait for images to load, then measure and start
+      window.addEventListener('load', function() {
+        measureSet();
+        position = -1; // start slightly offset
+        animate();
+      });
+
+      // Recalculate on resize
+      window.addEventListener('resize', function() {
+        measureSet();
+      });
     })();
   </script>
 
