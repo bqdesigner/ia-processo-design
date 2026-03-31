@@ -704,6 +704,23 @@ a {
   animation: blink-caret 0.7s step-end infinite;
 }
 
+/* ===== CASE PAGE REVEAL ANIMATIONS ===== */
+.case-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.case-reveal:nth-child(2) { transition-delay: 0.08s; }
+.case-reveal:nth-child(3) { transition-delay: 0.16s; }
+.case-reveal:nth-child(4) { transition-delay: 0.24s; }
+
 /* ===== CASE PAGE ===== */
 .case-page {
   padding-top: 320px;
