@@ -10,6 +10,15 @@ if (logoLink) {
   });
 }
 
+// Back to top smooth scroll
+var backToTop = document.getElementById('backToTop');
+if (backToTop) {
+  backToTop.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
 // Header: blur nav on scroll + hide nav/email on scroll down, show on scroll up
 const header = document.getElementById('header');
 var lastScrollY = 0;

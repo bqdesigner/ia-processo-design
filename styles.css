@@ -926,6 +926,103 @@ a {
   padding: 250px 48px;
 }
 
+/* ===== NEXT CASE ===== */
+.next-case-wrapper {
+  width: 100%;
+  max-width: 1344px;
+  margin: 80px auto 0;
+}
+
+.next-case {
+  display: flex;
+  border: 1px solid #E9ECEF;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.next-case:hover {
+  opacity: 0.9;
+}
+
+.next-case:hover .next-case-arrow {
+  background: #191819;
+}
+
+.next-case:hover .next-case-arrow svg path {
+  stroke: #fff;
+}
+
+.next-case-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 32px;
+  min-width: 0;
+}
+
+.next-case-subtitle {
+  font-family: 'Satoshi Variable', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: -1.92px;
+  color: #6C757D;
+  line-height: 1;
+}
+
+.next-case-title {
+  font-family: 'Satoshi Variable', sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  letter-spacing: -2.4px;
+  color: #111;
+  line-height: 1;
+  margin-top: 16px;
+}
+
+.next-case-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #E9ECEF;
+  border-radius: 500px;
+  margin-top: 32px;
+  transition: background 0.2s;
+}
+
+.next-case-arrow svg path {
+  transition: stroke 0.2s;
+}
+
+.next-case-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.next-case-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 695px;
+  height: 458px;
+  flex-shrink: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.next-case-right img {
+  width: 90%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
 /* ===== RESPONSIVE: TABLET ===== */
 @media (max-width: 1200px) {
   .hero-text {
@@ -968,6 +1065,19 @@ a {
 
   .case-footer {
     padding: 120px 48px;
+  }
+
+  .next-case-right {
+    width: 50%;
+    height: 360px;
+  }
+
+  .next-case-subtitle {
+    font-size: 24px;
+  }
+
+  .next-case-title {
+    font-size: 32px;
   }
 }
 
@@ -1159,6 +1269,34 @@ a {
 
   .case-img-inner {
     max-width: 100%;
+  }
+
+  .next-case-wrapper {
+    padding: 0 24px;
+    margin-top: 48px;
+  }
+
+  .next-case {
+    flex-direction: column;
+  }
+
+  .next-case-subtitle {
+    font-size: 20px;
+  }
+
+  .next-case-title {
+    font-size: 24px;
+    letter-spacing: -1.44px;
+  }
+
+  .next-case-right {
+    width: 100%;
+    height: 280px;
+  }
+
+  .next-case-arrow {
+    width: 48px;
+    height: 48px;
   }
 
   .case-footer {
