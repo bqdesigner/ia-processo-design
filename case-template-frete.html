@@ -112,8 +112,8 @@
     <section class="case-section">
       <h2 class="case-section-title">Desafio</h2>
       <div class="case-section-text">
-        <p> As transportadoras publicam vários fretes ao dia, e dependo da sua operação, poderia ser centenas de frete. Ao analisar os dados, percebi que poucas informações mudavam de um frete para outro, como valores e destino. Percebemos também que muitas transportadoras faziam o anuncio de cargas do mesmo tipo, ou seja, cada uma delas tinha um produto forte de transporte. </p>
-        <p> O tempo de média de cadastro era de mais de 2 minutos, isso porque a maioria já tinham as informações prontas para copiar e colar nas inputs. </p>
+        <p> Transportadoras publicam dezenas — às vezes centenas — de fretes por dia na Fretebras. Ao analisar os dados de uso, identifiquei um padrão: a maioria das cargas de uma mesma transportadora compartilhava informações quase idênticas, variando apenas valores e destinos. Mesmo assim, cada publicação exigia o preenchimento completo do formulário. </p>
+        <p> O tempo médio de cadastro era superior a 2 minutos — um gargalo operacional que se multiplicava a cada frete publicado e impactava diretamente o volume de ofertas na plataforma. </p>
       </div>
     </section>
 
@@ -128,8 +128,8 @@
     <section class="case-section">
       <h2 class="case-section-title">Solução e resultados</h2>
       <div class="case-section-text">
-        <p>When the pandemic hit in 2020, I fell into a dark place mentally. The regular anxiety I experienced became a bigger issue, and I had no idea how to deal with it. COVID regulations felt endless, and I didn't know what to do to keep myself sane.</p>
-        <p>In 2022, I began writing daily in a journaling app, which helped me take what was in my head and express it in words even if I was the only one reading them. Along with therapy and many other tools, daily journaling helped me navigate life.</p>
+        <p>A partir da análise de métricas de uso, mapeei os campos que se repetiam com maior frequência entre publicações de uma mesma transportadora. Com essa hipótese validada pelos dados, conduzi rodadas de exploração de soluções e validações internas com o time de produto e engenharia para chegar no formato mais viável. A solução final: templates reutilizáveis. O operador cadastra um frete normalmente e, ao final, salva a configuração como modelo. Nas publicações seguintes, parte do template e ajusta apenas o que muda — eliminando retrabalho sem alterar o fluxo já conhecido..</p>
+        <p>Após o rollout para toda a base, o tempo médio de cadastro caiu de 2 minutos para 40 segundos — uma redução de ~67%.</p>
       </div>
     </section>
 
