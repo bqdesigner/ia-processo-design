@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Case - Motorista VIP | Bruno Queirós</title>
-  <meta name="description" content="Case study - Construindo um SaaS que gera receita de 100MM/ano." />
+  <meta name="description" content="Case study - Construindo um SaaS que já gerou receita de 100MM." />
   <meta property="og:title" content="Case - Fretebras Motorista | Bruno Queirós" />
-  <meta property="og:description" content="Construindo um SaaS que gera receita de 100MM/ano." />
+  <meta property="og:description" content="Construindo um SaaS que já gerou receita de 100MM." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://portifolio-with-ia.vercel.app/assets/case-motorista-vip/main-case-img.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -19,7 +19,7 @@
 <body>
 
   <!-- SKIP LINK -->
-  <a href="#case-content" class="skip-link">Pular para o conteúdo</a>
+  <a href="#case-content" class="skip-link" data-i18n="skip">Pular para o conteúdo</a>
 
   <!-- HEADER -->
   <header class="header" id="header">
@@ -37,15 +37,15 @@
 
     <!-- Desktop Nav (centered) -->
     <nav class="nav">
-      <a href="index.html#trabalhos">Trabalhos</a>
+      <a href="index.html#trabalhos" data-i18n="nav.trabalhos">Trabalhos</a>
       <span class="nav-divider">/</span>
-      <a href="#contato">Contato</a>
+      <a href="#contato" data-i18n="nav.contato">Contato</a>
       <span class="nav-divider">/</span>
-      <a href="ia-processo-design/index.html">Meu guia de IA</a>
+      <a href="ia-processo-design/index.html" data-i18n="nav.guia">Meu guia de IA</a>
       <span class="nav-divider">/</span>
       <span class="nav-item-wrapper">
-        <span>Manda freelas</span>
-        <span class="nav-tag">Em breve</span>
+        <span data-i18n="nav.freelas">Manda freelas</span>
+        <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
       </span>
     </nav>
 
@@ -61,15 +61,15 @@
 
   <!-- Mobile Overlay Menu -->
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação">
-    <a href="index.html#trabalhos" onclick="closeMobileMenu()">Trabalhos</a>
+    <a href="index.html#trabalhos" onclick="closeMobileMenu()" data-i18n="nav.trabalhos">Trabalhos</a>
     <span class="nav-divider">/</span>
-    <a href="#contato" onclick="closeMobileMenu()">Contato</a>
+    <a href="#contato" onclick="closeMobileMenu()" data-i18n="nav.contato">Contato</a>
     <span class="nav-divider">/</span>
-    <a href="ia-processo-design/index.html" onclick="closeMobileMenu()">Meu guia de IA</a>
+    <a href="ia-processo-design/index.html" onclick="closeMobileMenu()" data-i18n="nav.guia">Meu guia de IA</a>
     <span class="nav-divider">/</span>
     <span class="nav-item-wrapper">
-      <span>Manda freelas</span>
-      <span class="nav-tag">Em breve</span>
+      <span data-i18n="nav.freelas">Manda freelas</span>
+      <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
     </span>
     <span class="nav-divider">/</span>
     <a href="mailto:bqdesigner@outlook.com">bqdesigner@outlook.com</a>
@@ -81,7 +81,7 @@
     <!-- Sub + Title -->
     <div class="case-header-section">
       <p class="case-subtitle">Work</p>
-      <h1 class="case-title">Construindo um SaaS que gera receita de 100MM/ano</h1>
+      <h1 class="case-title" data-i18n-page="case.title">Construindo um SaaS que já gerou receita de 100MM</h1>
     </div>
 
     <!-- Hero Image + Meta -->
@@ -91,16 +91,16 @@
       </div>
       <div class="case-meta">
         <div class="case-meta-item">
-          <span class="case-meta-label">Empresa</span>
+          <span class="case-meta-label" data-i18n="meta.empresa">Empresa</span>
           <span class="case-meta-value">Fretebras</span>
         </div>
         <div class="case-meta-item">
-          <span class="case-meta-label">Ano</span>
+          <span class="case-meta-label" data-i18n="meta.ano">Ano</span>
           <span class="case-meta-value">2023</span>
         </div>
         <div class="case-meta-item">
-          <span class="case-meta-label">Skills</span>
-          <span class="case-meta-value">Análise de Dados</span>
+          <span class="case-meta-label" data-i18n="meta.skills">Skills</span>
+          <span class="case-meta-value" data-i18n="meta.dados">Análise de Dados</span>
           <span class="case-meta-value">UI/UX Design</span>
           <span class="case-meta-value">Interaction Design</span>
           <span class="case-meta-value">Handoff</span>
@@ -110,10 +110,10 @@
 
     <!-- Desafio -->
     <section class="case-section">
-      <h2 class="case-section-title">Desafio</h2>
+      <h2 class="case-section-title" data-i18n-page="case.desafio">Desafio</h2>
       <div class="case-section-text">
-        <p>A Fretebras monetizava exclusivamente pelo lado da transportadora — o app do motorista era gratuito. Com uma base de mais de 600 mil caminhoneiros e 1,1 milhão de fretes cadastrados por mês, monetizar o lado motorista representava um potencial de receita enorme, mas inexplorado.</p>
-        <p>O desafio era duplo: encontrar um modelo de cobrança que o motorista percebesse como justo e, ao mesmo tempo, entregar valor suficiente para sustentar a conversão e a retenção a longo prazo</p>
+        <p data-i18n-page="case.desafio.p1">A Fretebras monetizava exclusivamente pelo lado da transportadora — o app do motorista era gratuito. Com uma base de mais de 600 mil caminhoneiros e 1,1 milhão de fretes cadastrados por mês, monetizar o lado motorista representava um potencial de receita enorme, mas inexplorado.</p>
+        <p data-i18n-page="case.desafio.p2">O desafio era duplo: encontrar um modelo de cobrança que o motorista percebesse como justo e, ao mesmo tempo, entregar valor suficiente para sustentar a conversão e a retenção a longo prazo</p>
       </div>
     </section>
 
@@ -126,18 +126,18 @@
 
     <!-- Solução -->
     <section class="case-section">
-      <h2 class="case-section-title">Solução</h2>
+      <h2 class="case-section-title" data-i18n-page="case.solucao">Solução</h2>
       <div class="case-section-text">
-        <p>Participei da definição e condução das pesquisas que sustentaram toda a estratégia. Na primeira rodada quantitativa, 48,75% dos motoristas consideraram válida a cobrança pelo uso do app — desde que vissem retorno em forma de benefícios e qualidade de serviço.Para entender quais benefícios teriam maior poder de conversão, conduzi uma segunda pesquisa focada em expectativas. Os mais citados foram:
+        <p data-i18n-page="case.solucao.p1">Participei da definição e condução das pesquisas que sustentaram toda a estratégia. Na primeira rodada quantitativa, 48,75% dos motoristas consideraram válida a cobrança pelo uso do app — desde que vissem retorno em forma de benefícios e qualidade de serviço.Para entender quais benefícios teriam maior poder de conversão, conduzi uma segunda pesquisa focada em expectativas. Os mais citados foram:
         </p>
         <ul style="list-style: none; padding-left: 2rem; margin: 1.5rem 0;">
-          <li> Ver fretes antes de outros motoristas </li>
-          <li> Saldo garantido </li>
-          <li> Cashback no diesel </li>
+          <li data-i18n-page="case.solucao.li1"> Ver fretes antes de outros motoristas </li>
+          <li data-i18n-page="case.solucao.li2"> Saldo garantido </li>
+          <li data-i18n-page="case.solucao.li3"> Cashback no diesel </li>
         </ul>
-        
-        <p>Com essas hipóteses, rodei um teste de usabilidade moderado com 9 motoristas de perfis, idades e veículos diferentes. O fluxo testado simulava a experiência gratuita — o motorista via o frete disponível, mas para acessar os detalhes precisava aguardar a liberação para toda a base ou assinar o VIP para ver antes. No checkout, exibíamos os benefícios exclusivos como reforço da proposta de valor.</p>
-        <p>Os resultados validaram tanto a mecânica de conversão quanto a percepção de valor da assinatura. O modelo definido foi assinatura mensal com benefícios exclusivos, precificado a partir de pesquisa dedicada de willingness to pay.</p>
+
+        <p data-i18n-page="case.solucao.p2">Com essas hipóteses, rodei com o time de pesquisa um teste de usabilidade moderado com 9 motoristas de perfis, idades e veículos diferentes. O fluxo testado simulava a experiência gratuita — o motorista via o frete disponível, mas para acessar os detalhes precisava aguardar a liberação para toda a base ou assinar o VIP para ver antes. No checkout, exibíamos os benefícios exclusivos como reforço da proposta de valor.</p>
+        <p data-i18n-page="case.solucao.p3">Os resultados validaram tanto a mecânica de conversão quanto a percepção de valor da assinatura. O modelo definido foi assinatura mensal com benefícios exclusivos, precificado a partir de pesquisa dedicada de willingness to pay.</p>
 
       </div>
     </section>
@@ -158,9 +158,9 @@
 
     <!-- Solução -->
     <section class="case-section">
-      <h2 class="case-section-title">Resultados</h2>
-      <div class="case-section-text">      
-        <p>Mais de 100 mil assinaturas VIP vendidas, gerando uma receita anual de quase R$100 milhões — transformando o app do motorista de centro de custo em uma das principais fontes de receita da Fretebras.</p>
+      <h2 class="case-section-title" data-i18n-page="case.resultados">Resultados</h2>
+      <div class="case-section-text">
+        <p data-i18n-page="case.resultados.p1">Mais de 100 mil assinaturas VIP vendidas, gerando uma receita de quase R$100 milhões — transformando o app do motorista de centro de custo em uma das principais fontes de receita da Fretebras.</p>
       </div>
     </section>
 
@@ -169,8 +169,8 @@
     <a href="case-template-frete.html" class="next-case">
       <div class="next-case-left">
         <div>
-          <p class="next-case-subtitle">Veja também</p>
-          <h2 class="next-case-title">Reduzindo em até 85% o tempo de cadastro e publicação de um frete</h2>
+          <p class="next-case-subtitle" data-i18n="next.veja">Veja também</p>
+          <h2 class="next-case-title" data-i18n-page="next.title">Reduzindo em até 70% o tempo de cadastro e publicação de um frete</h2>
         </div>
         <div class="next-case-arrow">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -187,7 +187,7 @@
     <!-- Footer CTA -->
     <footer class="case-footer" id="contato">
       <div class="footer-cta-left">
-        <h2 class="footer-cta-title">Bora trabalhar juntos?</h2>
+        <h2 class="footer-cta-title" data-i18n="footer.cta">Bora trabalhar juntos?</h2>
         <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
       </div>
       <div class="footer-links">
@@ -201,7 +201,7 @@
 
     <!-- Back to Top -->
     <a href="#" class="back-to-top" id="backToTop" aria-label="Me leve para o topo">
-      <span>me leve para o topo</span>
+      <span data-i18n="backtotop">me leve para o topo</span>
       <span class="back-to-top-icon">
         <svg width="15" height="10" viewBox="0 0 14.8333 9.5" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0.75 4.75H13.4167M10.0833 8.75L14.0833 4.75L10.0833 0.75" stroke="#6C757D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -211,6 +211,7 @@
 
   </main>
 
+  <script src="lang-switcher.js"></script>
   <script>
     // Header: blur nav on scroll + hide/show on scroll direction
     const header = document.getElementById('header');

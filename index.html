@@ -22,7 +22,7 @@
 <body>
 
   <!-- SKIP LINK -->
-  <a href="#trabalhos" class="skip-link">Pular para o conteúdo</a>
+  <a href="#trabalhos" class="skip-link" data-i18n="skip">Pular para o conteúdo</a>
 
   <!-- HEADER -->
   <header class="header" id="header">
@@ -40,15 +40,15 @@
 
     <!-- Desktop Nav (centered) -->
     <nav class="nav">
-      <a href="#trabalhos">Trabalhos</a>
+      <a href="#trabalhos" data-i18n="nav.trabalhos">Trabalhos</a>
       <span class="nav-divider">/</span>
-      <a href="#contato">Contato</a>
+      <a href="#contato" data-i18n="nav.contato">Contato</a>
       <span class="nav-divider">/</span>
-      <a href="ia-processo-design/index.html">Meu guia de IA</a>
+      <a href="ia-processo-design/index.html" data-i18n="nav.guia">Meu guia de IA</a>
       <span class="nav-divider">/</span>
       <span class="nav-item-wrapper">
-        <span>Manda freelas</span>
-        <span class="nav-tag">Em breve</span>
+        <span data-i18n="nav.freelas">Manda freelas</span>
+        <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
       </span>
     </nav>
 
@@ -64,15 +64,15 @@
 
   <!-- Mobile Overlay Menu -->
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação">
-    <a href="#trabalhos" onclick="closeMobileMenu()">Trabalhos</a>
+    <a href="#trabalhos" onclick="closeMobileMenu()" data-i18n="nav.trabalhos">Trabalhos</a>
     <span class="nav-divider">/</span>
-    <a href="#contato" onclick="closeMobileMenu()">Contato</a>
+    <a href="#contato" onclick="closeMobileMenu()" data-i18n="nav.contato">Contato</a>
     <span class="nav-divider">/</span>
-    <a href="ia-processo-design/index.html" onclick="closeMobileMenu()">Meu guia de IA</a>
+    <a href="ia-processo-design/index.html" onclick="closeMobileMenu()" data-i18n="nav.guia">Meu guia de IA</a>
     <span class="nav-divider">/</span>
     <span class="nav-item-wrapper">
-      <span>Manda freelas</span>
-      <span class="nav-tag">Em breve</span>
+      <span data-i18n="nav.freelas">Manda freelas</span>
+      <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
     </span>
     <span class="nav-divider">/</span>
     <a href="mailto:bqdesigner@outlook.com">bqdesigner@outlook.com</a>
@@ -82,9 +82,9 @@
   <section class="hero">
     <h1 class="sr-only">Bruno Queirós - AI Product Designer</h1>
     <div class="hero-text" id="heroText">
-      <p class="typewriter-line" data-text="Com mais de 10 anos de experiência em design, transformo desafios em experiências que geram valor."></p>
+      <p class="typewriter-line" data-text="Com mais de 10 anos de experiência em design, transformo desafios em experiências que geram valor." data-i18n-page="hero.line1"></p>
       <br />
-      <p class="typewriter-line muted" data-text="Unindo craft, IA, dados e estratégia, crio soluções que conectam usuários e negócios com impacto real."></p>
+      <p class="typewriter-line muted" data-text="Unindo craft, IA, dados e estratégia, crio soluções que conectam usuários e negócios com impacto real." data-i18n-page="hero.line2"></p>
     </div>
     <div class="scroll-indicator" aria-hidden="true">
       <svg viewBox="0 0 27 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,12 +117,12 @@
       <div class="project-blur" style="--blur-color: rgba(233,236,239,0.8);"></div>
       <div class="project-info project-info--light" style="background: rgba(233,236,239,0.7);">
         <div>
-          <h2 class="project-name">Fretebras - Template de fretes</h2>
-          <div class="project-desc"> Reduzindo em até 85% o tempo de cadastro e publicação de um frete.</div>
+          <h2 class="project-name" data-i18n-page="project.fb.name">Fretebras - Template de fretes</h2>
+          <div class="project-desc" data-i18n-page="project.fb.desc"> Reduzindo em até 70% o tempo de cadastro e publicação de um frete.</div>
         </div>
         <div class="project-action">
           <div class="project-year">// 2025</div>
-          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span> <span class="project-cta-arrow">&rarr;</span></div>
         </div>
       </div>
     </a>
@@ -133,12 +133,12 @@
       <div class="project-blur" style="--blur-color: rgba(29,31,46,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(29,31,46,0.7);">
         <div>
-          <h2 class="project-name">WiseChat</h2>
-          <div class="project-desc">Construindo uma ferramenta totalmente integrada e personalizável.</div>
+          <h2 class="project-name" data-i18n-page="project.wc.name">WiseChat</h2>
+          <div class="project-desc" data-i18n-page="project.wc.desc">Construindo uma ferramenta totalmente integrada e personalizável.</div>
         </div>
         <div class="project-action">
           <div class="project-year">// 2025</div>
-          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span> <span class="project-cta-arrow">&rarr;</span></div>
         </div>
       </div>
     </a>
@@ -149,12 +149,12 @@
       <div class="project-blur" style="--blur-color: rgba(2,49,106,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(2,49,106,0.7);">
         <div>
-          <h2 class="project-name">WiseApp</h2>
-          <div class="project-desc">App de roteirização para motoristas transportar de forma mais inteligente.</div>
+          <h2 class="project-name" data-i18n-page="project.wa.name">WiseApp</h2>
+          <div class="project-desc" data-i18n-page="project.wa.desc">App de roteirização para motoristas transportar de forma mais inteligente.</div>
         </div>
         <div class="project-action">
           <div class="project-year">// 2024</div>
-          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span> <span class="project-cta-arrow">&rarr;</span></div>
         </div>
       </div>
     </a>
@@ -165,12 +165,12 @@
       <div class="project-blur" style="--blur-color: rgba(25,24,25,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(25,24,25,0.7);">
         <div>
-          <h2 class="project-name">Fretebras - Motorista VIP</h2>
-          <div class="project-desc">Construindo um SaaS que gera receita de 100MM/ano.</div>
+          <h2 class="project-name" data-i18n-page="project.vip.name">Fretebras - Motorista VIP</h2>
+          <div class="project-desc" data-i18n-page="project.vip.desc">Construindo um SaaS que já gerou receita de 100MM.</div>
         </div>
         <div class="project-action">
           <div class="project-year">// 2023</div>
-          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span> <span class="project-cta-arrow">&rarr;</span></div>
         </div>
       </div>
     </a>
@@ -184,20 +184,20 @@
   <section class="about-me" id="sobre">
     <div class="about-me-inner">
       <div class="about-me-left">
-        <h2 class="case-section-title">Sobre</h2>
+        <h2 class="case-section-title" data-i18n="about.title">Sobre</h2>
         <div class="case-section-text">
-          <p>12 anos trabalhando com Design, sendo os últimos 10 dedicados a UX e produto digital. Já estive à frente do design de projetos na CNN Brasil, Rakuten, Net NOW, Dasa e Fretebras — passando por early stages, startups aportadas e big corps. Atualmente sou Senior Product Designer na Stone, uma das maiores empresas financeiras do Brasil, onde atuo com foco em produto e IA.</p>
-          <p>Minha trajetória é diversa em contexto, mas consistente em perfil: produtos de alta complexidade operacional — plataformas de logística, ferramentas de gestão, aplicativos de campo, sistemas financeiros — onde simplificar a experiência tem impacto direto em receita e eficiência. Transito entre visão estratégica e execução detalhada: da descoberta e métricas de produto ao visual craft e Design System.</p>
-          <p>Acredito que o melhor design nasce quando o time entende o problema junto, não quando o designer entrega sozinho.</p>
+          <p data-i18n="about.p1">12 anos trabalhando com Design, sendo os últimos 10 dedicados a UX e produto digital. Já estive à frente do design de projetos na CNN Brasil, Rakuten, Net NOW, Dasa e Fretebras — passando por early stages, startups aportadas e big corps. Atualmente sou Senior Product Designer na Stone, uma das maiores empresas financeiras do Brasil, onde atuo com foco em produto e IA.</p>
+          <p data-i18n="about.p2">Minha trajetória é diversa em contexto, mas consistente em perfil: produtos de alta complexidade operacional — plataformas de logística, ferramentas de gestão, aplicativos de campo, sistemas financeiros — onde simplificar a experiência tem impacto direto em receita e eficiência. Transito entre visão estratégica e execução detalhada: da descoberta e métricas de produto ao visual craft e Design System.</p>
+          <p data-i18n="about.p3">Acredito que o melhor design nasce quando o time entende o problema junto, não quando o designer entrega sozinho.</p>
           <p>—</p>
-          <p>Fora do trabalho, provavelmente estarei na academia, ou buscando conhecer lugares que fazem um bom café. Gosto de estar em constante movimento, seja viajando, seja fazendo um esporte radical, seja vivendo.</p>
+          <p data-i18n="about.p5">Fora do trabalho, provavelmente estarei na academia, ou buscando conhecer lugares que fazem um bom café. Gosto de estar em constante movimento, seja viajando, seja fazendo um esporte radical, seja vivendo.</p>
         </div>
       </div>
       <div class="about-me-right">
-        <h2 class="case-section-title">Experiências</h2>
+        <h2 class="case-section-title" data-i18n="about.exp">Experiências</h2>
         <div class="about-me-jobs">
           <div class="about-me-job">
-            <p class="about-me-job-title">Stone - 2025/Atual</p>
+            <p class="about-me-job-title" data-i18n="about.job1">Stone - 2025/Atual</p>
             <p class="about-me-job-role">Senior Product Designer</p>
           </div>
           <div class="about-me-job">
@@ -222,7 +222,7 @@
           </div>
         </div>
         <a href="javascript:void(0)" class="about-me-btn">
-          <span>Baixe meu CV</span>
+          <span data-i18n="about.cv">Baixe meu CV</span>
           <span class="back-to-top-icon">
             <svg width="15" height="10" viewBox="0 0 14.8333 9.5" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0.75 4.75H13.4167M10.0833 8.75L14.0833 4.75L10.0833 0.75" stroke="#6C757D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -236,7 +236,7 @@
   <!-- Footer CTA -->
   <footer class="case-footer" id="contato">
     <div class="footer-cta-left">
-      <h2 class="footer-cta-title">Bora trabalhar juntos?</h2>
+      <h2 class="footer-cta-title" data-i18n="footer.cta">Bora trabalhar juntos?</h2>
       <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
     </div>
     <div class="footer-links">
@@ -250,7 +250,7 @@
 
   <!-- Back to Top -->
   <a href="#" class="back-to-top" id="backToTop" aria-label="Me leve para o topo" style="margin: 64px auto;">
-    <span>me leve para o topo</span>
+    <span data-i18n="backtotop">me leve para o topo</span>
     <span class="back-to-top-icon">
       <svg width="15" height="10" viewBox="0 0 14.8333 9.5" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0.75 4.75H13.4167M10.0833 8.75L14.0833 4.75L10.0833 0.75" stroke="#6C757D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -264,6 +264,7 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="lang-switcher.js"></script>
 
 </body>
 </html>

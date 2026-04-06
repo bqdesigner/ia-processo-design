@@ -19,7 +19,7 @@
 <body>
 
   <!-- SKIP LINK -->
-  <a href="#case-content" class="skip-link">Pular para o conteúdo</a>
+  <a href="#case-content" class="skip-link" data-i18n="skip">Pular para o conteúdo</a>
 
   <!-- HEADER -->
   <header class="header" id="header">
@@ -37,15 +37,15 @@
 
     <!-- Desktop Nav (centered) -->
     <nav class="nav">
-      <a href="index.html#trabalhos">Trabalhos</a>
+      <a href="index.html#trabalhos" data-i18n="nav.trabalhos">Trabalhos</a>
       <span class="nav-divider">/</span>
-      <a href="#contato">Contato</a>
+      <a href="#contato" data-i18n="nav.contato">Contato</a>
       <span class="nav-divider">/</span>
-      <a href="ia-processo-design/index.html">Meu guia de IA</a>
+      <a href="ia-processo-design/index.html" data-i18n="nav.guia">Meu guia de IA</a>
       <span class="nav-divider">/</span>
       <span class="nav-item-wrapper">
-        <span>Manda freelas</span>
-        <span class="nav-tag">Em breve</span>
+        <span data-i18n="nav.freelas">Manda freelas</span>
+        <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
       </span>
     </nav>
 
@@ -61,15 +61,15 @@
 
   <!-- Mobile Overlay Menu -->
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação">
-    <a href="index.html#trabalhos" onclick="closeMobileMenu()">Trabalhos</a>
+    <a href="index.html#trabalhos" onclick="closeMobileMenu()" data-i18n="nav.trabalhos">Trabalhos</a>
     <span class="nav-divider">/</span>
-    <a href="#contato" onclick="closeMobileMenu()">Contato</a>
+    <a href="#contato" onclick="closeMobileMenu()" data-i18n="nav.contato">Contato</a>
     <span class="nav-divider">/</span>
-    <a href="ia-processo-design/index.html" onclick="closeMobileMenu()">Meu guia de IA</a>
+    <a href="ia-processo-design/index.html" onclick="closeMobileMenu()" data-i18n="nav.guia">Meu guia de IA</a>
     <span class="nav-divider">/</span>
     <span class="nav-item-wrapper">
-      <span>Manda freelas</span>
-      <span class="nav-tag">Em breve</span>
+      <span data-i18n="nav.freelas">Manda freelas</span>
+      <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
     </span>
     <span class="nav-divider">/</span>
     <a href="mailto:bqdesigner@outlook.com">bqdesigner@outlook.com</a>
@@ -81,7 +81,7 @@
     <!-- Sub + Title -->
     <div class="case-header-section">
       <p class="case-subtitle">Work</p>
-      <h1 class="case-title">Construindo uma ferramenta totalmente integrada e personalizável</h1>
+      <h1 class="case-title" data-i18n-page="case.title">Construindo uma ferramenta totalmente integrada e personalizável</h1>
     </div>
 
     <!-- Hero Image + Meta -->
@@ -91,16 +91,16 @@
       </div>
       <div class="case-meta">
         <div class="case-meta-item">
-          <span class="case-meta-label">Empresa</span>
+          <span class="case-meta-label" data-i18n="meta.empresa">Empresa</span>
           <span class="case-meta-value">FieldCorp</span>
         </div>
         <div class="case-meta-item">
-          <span class="case-meta-label">Ano</span>
+          <span class="case-meta-label" data-i18n="meta.ano">Ano</span>
           <span class="case-meta-value">2025</span>
         </div>
         <div class="case-meta-item">
-          <span class="case-meta-label">Skills</span>
-          <span class="case-meta-value">Análise de Dados</span>
+          <span class="case-meta-label" data-i18n="meta.skills">Skills</span>
+          <span class="case-meta-value" data-i18n="meta.dados">Análise de Dados</span>
           <span class="case-meta-value">UI/UX Design</span>
           <span class="case-meta-value">Interaction Design</span>
           <span class="case-meta-value">Handoff</span>
@@ -110,10 +110,10 @@
 
     <!-- Desafio -->
     <section class="case-section">
-      <h2 class="case-section-title">Desafio</h2>
+      <h2 class="case-section-title" data-i18n-page="case.desafio">Desafio</h2>
       <div class="case-section-text">
-        <p>A FieldCorp gerenciava toda a operação de motoristas de forma fragmentada — recrutamento via WhatsApp, acompanhamento de desempenho em planilhas, comunicação em massa por grupos e anotações dispersas em docs. Essa descentralização gerava retrabalho, perda de informação entre etapas e dificultava a escalabilidade da operação.</p>
-        <p>A empresa já havia contratado o Wisechat, uma plataforma própria para centralizar esses fluxos, mas a experiência original da ferramenta não atendia as necessidades reais do dia a dia operacional.</p>
+        <p data-i18n-page="case.desafio.p1">A FieldCorp gerenciava toda a operação de motoristas de forma fragmentada — recrutamento via WhatsApp, acompanhamento de desempenho em planilhas, comunicação em massa por grupos e anotações dispersas em docs. Essa descentralização gerava retrabalho, perda de informação entre etapas e dificultava a escalabilidade da operação.</p>
+        <p data-i18n-page="case.desafio.p2">A empresa já havia contratado o Wisechat, uma plataforma própria para centralizar esses fluxos, mas a experiência original da ferramenta não atendia as necessidades reais do dia a dia operacional.</p>
       </div>
     </section>
 
@@ -126,10 +126,10 @@
 
     <!-- Solução e resultados -->
     <section class="case-section">
-      <h2 class="case-section-title">Solução</h2>
+      <h2 class="case-section-title" data-i18n-page="case.solucao">Solução</h2>
       <div class="case-section-text">
-        <p>Conduzi uma análise completa da usabilidade do Wisechat, mapeando os pontos de fricção e as lacunas em relação ao fluxo real da operação. A partir disso, realizei rodadas de interação direta com o stakeholder principal — o fundador da FieldCorp — para alinhar prioridades, validar direções e ajustar as propostas ao contexto do negócio.</p>
-        <p>Redesenhei a experiência do zero: novos fluxos de recrutamento, gestão de desempenho e comunicação em massa, todos integrados em uma interface única. Além do redesign, construí e documentei uma biblioteca de componentes com potencial para evoluir como design system da plataforma — garantindo consistência visual e acelerando futuras entregas.O projeto foi validado com o stakeholder e está atualmente em fase de desenvolvimento.</p>
+        <p data-i18n-page="case.solucao.p1">Conduzi uma análise completa da usabilidade do Wisechat, mapeando os pontos de fricção e as lacunas em relação ao fluxo real da operação. A partir disso, realizei rodadas de interação direta com o stakeholder principal — o fundador da FieldCorp — para alinhar prioridades, validar direções e ajustar as propostas ao contexto do negócio.</p>
+        <p data-i18n-page="case.solucao.p2">Redesenhei a experiência do zero: novos fluxos de recrutamento, gestão de desempenho e comunicação em massa, todos integrados em uma interface única. Além do redesign, construí e documentei uma biblioteca de componentes com potencial para evoluir como design system da plataforma — garantindo consistência visual e acelerando futuras entregas.O projeto foi validado com o stakeholder e está atualmente em fase de desenvolvimento.</p>
       </div>
     </section>
 
@@ -173,8 +173,8 @@
     <a href="case-wiseapp.html" class="next-case">
       <div class="next-case-left">
         <div>
-          <p class="next-case-subtitle">Veja também</p>
-          <h2 class="next-case-title">App de roteirização para motoristas transportar de forma mais inteligente</h2>
+          <p class="next-case-subtitle" data-i18n="next.veja">Veja também</p>
+          <h2 class="next-case-title" data-i18n-page="next.title">App de roteirização para motoristas transportar de forma mais inteligente</h2>
         </div>
         <div class="next-case-arrow">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -191,7 +191,7 @@
     <!-- Footer CTA -->
     <footer class="case-footer" id="contato">
       <div class="footer-cta-left">
-        <h2 class="footer-cta-title">Bora trabalhar juntos?</h2>
+        <h2 class="footer-cta-title" data-i18n="footer.cta">Bora trabalhar juntos?</h2>
         <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
       </div>
       <div class="footer-links">
@@ -205,7 +205,7 @@
 
     <!-- Back to Top -->
     <a href="#" class="back-to-top" id="backToTop" aria-label="Me leve para o topo">
-      <span>me leve para o topo</span>
+      <span data-i18n="backtotop">me leve para o topo</span>
       <span class="back-to-top-icon">
         <svg width="15" height="10" viewBox="0 0 14.8333 9.5" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0.75 4.75H13.4167M10.0833 8.75L14.0833 4.75L10.0833 0.75" stroke="#6C757D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -262,6 +262,7 @@
     }
 
   </script>
+  <script src="lang-switcher.js"></script>
 
 </body>
 </html>
