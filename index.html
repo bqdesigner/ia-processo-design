@@ -42,9 +42,9 @@
     <!-- Desktop Nav (centered) -->
     <nav class="nav">
       <a href="#trabalhos" data-i18n="nav.trabalhos">Trabalhos</a>
-      <span class="nav-divider">/</span>
+      <span class="nav-divider" aria-hidden="true">/</span>
       <a href="#contato" data-i18n="nav.contato">Contato</a>
-      <span class="nav-divider">/</span>
+      <span class="nav-divider" aria-hidden="true">/</span>
       <span class="nav-item-wrapper">
         <span data-i18n="nav.freelas">Manda freelas</span>
         <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
@@ -59,23 +59,23 @@
     </button>
 
     <div class="style-mode">
-      <button data-mode="light" type="button" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20"><circle cx="10" cy="10" r="4" fill="#F59E0B"/><g stroke="#F59E0B" stroke-width="2" stroke-linecap="round"><line x1="10" y1="1" x2="10" y2="3"/><line x1="10" y1="17" x2="10" y2="19"/><line x1="1" y1="10" x2="3" y2="10"/><line x1="17" y1="10" x2="19" y2="10"/><line x1="3.34" y1="3.34" x2="4.75" y2="4.75"/><line x1="15.25" y1="15.25" x2="16.66" y2="16.66"/><line x1="3.34" y1="16.66" x2="4.75" y2="15.25"/><line x1="15.25" y1="4.75" x2="16.66" y2="3.34"/></g></svg></button>
-      <span class="style-mode-divider">/</span>
-      <button data-mode="dark" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.003 8.003 0 1010.586 10.586z" fill="#6366F1"/></svg></button>
+      <button data-mode="light" type="button" class="active" aria-label="Modo claro"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20"><circle cx="10" cy="10" r="4" fill="#F59E0B"/><g stroke="#F59E0B" stroke-width="2" stroke-linecap="round"><line x1="10" y1="1" x2="10" y2="3"/><line x1="10" y1="17" x2="10" y2="19"/><line x1="1" y1="10" x2="3" y2="10"/><line x1="17" y1="10" x2="19" y2="10"/><line x1="3.34" y1="3.34" x2="4.75" y2="4.75"/><line x1="15.25" y1="15.25" x2="16.66" y2="16.66"/><line x1="3.34" y1="16.66" x2="4.75" y2="15.25"/><line x1="15.25" y1="4.75" x2="16.66" y2="3.34"/></g></svg></button>
+      <span class="style-mode-divider" aria-hidden="true">/</span>
+      <button data-mode="dark" type="button" aria-label="Modo escuro"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.003 8.003 0 1010.586 10.586z" fill="#6366F1"/></svg></button>
     </div>
   </header>
 
   <!-- Mobile Overlay Menu -->
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação">
     <a href="#trabalhos" onclick="closeMobileMenu()" data-i18n="nav.trabalhos">Trabalhos</a>
-    <span class="nav-divider">/</span>
+    <span class="nav-divider" aria-hidden="true">/</span>
     <a href="#contato" onclick="closeMobileMenu()" data-i18n="nav.contato">Contato</a>
-    <span class="nav-divider">/</span>
+    <span class="nav-divider" aria-hidden="true">/</span>
     <span class="nav-item-wrapper">
       <span data-i18n="nav.freelas">Manda freelas</span>
       <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
     </span>
-    <span class="nav-divider">/</span>
+    <span class="nav-divider" aria-hidden="true">/</span>
     <a href="mailto:bqdesigner@outlook.com">bqdesigner@outlook.com</a>
   </div>
 
@@ -130,7 +130,7 @@
 
     <!-- WiseChat -->
     <a href="case-wisechat.html" class="project-card project-card--link" style="background: #1D1F2E;">
-      <img class="project-img" src="assets/main/job_wisechat.png" alt="Interface do WiseChat com painel de conversas e gestão de equipes" width="1200" height="800" />
+      <img class="project-img" src="assets/main/job_wisechat.png" alt="Interface do WiseChat com painel de conversas e gestão de equipes" width="1200" height="800" loading="lazy" />
       <div class="project-blur" style="--blur-color: rgba(29,31,46,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(29,31,46,0.7);">
         <div>
@@ -146,7 +146,7 @@
 
     <!-- WiseApp -->
     <a href="case-wiseapp.html" class="project-card project-card--link" style="background: #02316A;">
-      <img class="project-img" src="assets/main/job_wiseapp.png" alt="App WiseApp com interface de roteirização para motoristas" width="1200" height="800" />
+      <img class="project-img" src="assets/main/job_wiseapp.png" alt="App WiseApp com interface de roteirização para motoristas" width="1200" height="800" loading="lazy" />
       <div class="project-blur" style="--blur-color: rgba(2,49,106,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(2,49,106,0.7);">
         <div>
@@ -162,7 +162,7 @@
 
     <!-- Frete.com VIP -->
     <a href="case-motorista-vip.html" class="project-card project-card--link" style="background: #191819;">
-      <img class="project-img" src="assets/main/job_fb-vip.png" alt="Dashboard do Frete.com VIP com painel SaaS de gestão de fretes" width="1200" height="800" />
+      <img class="project-img" src="assets/main/job_fb-vip.png" alt="Dashboard do Frete.com VIP com painel SaaS de gestão de fretes" width="1200" height="800" loading="lazy" />
       <div class="project-blur" style="--blur-color: rgba(25,24,25,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(25,24,25,0.7);">
         <div>
