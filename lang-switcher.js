@@ -212,7 +212,12 @@
       '<span class="lang-switcher-divider" aria-hidden="true">/</span>' +
       '<button data-lang="en" type="button" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" rx="2" fill="#fff"/><path d="M0 0h20v1.077H0zm0 2.154h20v1.077H0zm0 2.154h20v1.077H0zm0 2.153h20v1.077H0zm0 2.154h20v1.077H0zm0 2.154h20v1.077H0zm0 2.154h20V14H0z" fill="#B22234"/><rect width="8" height="7.538" rx="1" fill="#3C3B6E"/><path d="M1 1l.2.6H2l-.5.4.2.6L1 2.2.3 2.6l.2-.6L0 1.6h.8zm2 0l.2.6H4l-.5.4.2.6L3 2.2l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H6l-.5.4.2.6L5 2.2l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H8l-.5.4.2.6L7 2.2l-.7.4.2-.6-.5-.4h.8zM2 2.5l.2.6H3l-.5.4.2.6-.7-.4-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H5l-.5.4.2.6L4 3.7l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H7l-.5.4.2.6L6 3.7l-.7.4.2-.6-.5-.4h.8zM1 4l.2.6H2l-.5.4.2.6L1 5.2.3 5.6l.2-.6L0 4.6h.8zm2 0l.2.6H4l-.5.4.2.6L3 5.2l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H6l-.5.4.2.6L5 5.2l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H8l-.5.4.2.6L7 5.2l-.7.4.2-.6-.5-.4h.8zM2 5.5l.2.6H3l-.5.4.2.6L2 6.7l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H5l-.5.4.2.6L4 6.7l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H7l-.5.4.2.6L6 6.7l-.7.4.2-.6-.5-.4h.8z" fill="#fff"/></svg></button>';
 
-    document.body.appendChild(switcher);
+    var header = document.getElementById('header');
+    if (header) {
+      header.appendChild(switcher);
+    } else {
+      document.body.appendChild(switcher);
+    }
 
     switcher.addEventListener('click', function (e) {
       var btn = e.target.closest('button[data-lang]');

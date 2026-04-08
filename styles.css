@@ -1231,19 +1231,24 @@ a {
 @media (max-width: 1090px) {
   .header {
     padding: 24px;
+    justify-content: flex-start;
+    gap: 0;
   }
 
   .style-mode {
-    position: fixed;
-    bottom: 16px;
-    left: 16px;
-    z-index: 150;
-    flex-direction: column;
-    gap: 4px;
-    padding: 8px 8px;
+    position: static;
+    order: 2;
+    flex-direction: row;
+    gap: 8px;
+    padding: 8px;
     opacity: 1;
     transform: none;
     pointer-events: auto;
+    background: var(--color-light);
+    border: 1px solid var(--color-low);
+    border-radius: 500px;
+    margin-left: auto;
+    margin-right: 16px;
   }
 
   .header--scrolled .style-mode {
@@ -1253,7 +1258,7 @@ a {
   }
 
   .style-mode button {
-    padding: 8px 8px;
+    padding: 8px;
   }
 
   .style-mode-divider {
@@ -1266,6 +1271,8 @@ a {
 
   .hamburger {
     display: flex;
+    order: 4;
+    margin-left: auto;
     background: none;
     border-radius: 500px;
     padding: 12px;
@@ -1572,17 +1579,17 @@ a {
 
 @media (max-width: 1090px) {
   .lang-switcher {
-    bottom: 16px;
-    right: 16px;
-    flex-direction: column;
-    gap: 4px;
-    padding: 8px 8px;
+    position: static;
+    order: 3;
+    flex-direction: row;
+    gap: 8px;
+    padding: 8px;
     font-size: 16px;
   }
 
   .lang-switcher button {
     font-size: 16px;
-    padding: 8px 8px;
+    padding: 8px;
   }
 
   .lang-switcher-divider {
