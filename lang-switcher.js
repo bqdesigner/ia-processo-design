@@ -146,7 +146,7 @@
     var pageKey = getPageKey();
     var pageTrans = pages[pageKey];
     if (pageTrans) {
-      var pageEls = document.querySelectorAll('[data-i18n-page]');
+      var pageEls = document.querySelectorAll('[data-i18n-page]:not(.typewriter-line)');
       pageEls.forEach(function (el) {
         var key = el.getAttribute('data-i18n-page');
         storeOriginal(el);
@@ -161,24 +161,23 @@
 
     // Handle typewriter on index (data-text attributes)
     var typewriterLines = document.querySelectorAll('.typewriter-line');
+    var replacedTypewriter = false;
     typewriterLines.forEach(function (el) {
       var key = el.getAttribute('data-i18n-page');
       if (!key) return;
       storeOriginal(el, 'data-text');
       if (lang === 'en' && pages['index.html'] && pages['index.html'][key]) {
-        // Replace visible word spans with translated text
-        var words = el.querySelectorAll('.word');
-        if (words.length > 0) {
-          var newText = pages['index.html'][key];
-          var newWords = newText.split(' ');
-          el.innerHTML = '';
-          newWords.forEach(function (word, i) {
-            var span = document.createElement('span');
-            span.className = 'word visible';
-            span.textContent = word + (i < newWords.length - 1 ? ' ' : '');
-            el.appendChild(span);
-          });
-        }
+        // Replace word spans with translated text
+        var newText = pages['index.html'][key];
+        var newWords = newText.split(' ');
+        el.innerHTML = '';
+        newWords.forEach(function (word, i) {
+          var span = document.createElement('span');
+          span.className = 'word visible';
+          span.textContent = word + (i < newWords.length - 1 ? ' ' : '');
+          el.appendChild(span);
+        });
+        replacedTypewriter = true;
       } else if (lang === 'pt') {
         var store = originals.get(el);
         if (store && 'data-text' in store) {
@@ -191,9 +190,17 @@
             span.textContent = word + (i < ptWords.length - 1 ? ' ' : '');
             el.appendChild(span);
           });
+          replacedTypewriter = true;
         }
       }
     });
+
+    // When typewriter spans are replaced, the original animation loses its
+    // references and never completes — so ensure the scroll indicator is visible
+    if (replacedTypewriter) {
+      var indicator = document.querySelector('.scroll-indicator');
+      if (indicator) indicator.classList.add('scroll-indicator--visible');
+    }
 
     // Update page title
     if (lang === 'en') {
