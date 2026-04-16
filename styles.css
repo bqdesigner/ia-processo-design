@@ -10,7 +10,7 @@
   --color-muted: #ADB5BD;
   --color-accent: #FF6768;
   --color-hover: #F7F7F7;
-  --font: 'Satoshi', 'Inter', system-ui, sans-serif;
+  --font: 'DM Sans', system-ui, sans-serif;
 }
 
 [data-theme="dark"] {
@@ -344,7 +344,6 @@ a {
   font-size: 40px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -2.4px;
   text-wrap: balance;
 }
 
@@ -392,6 +391,10 @@ a {
   height: 52px;
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .scroll-indicator--visible {
@@ -491,7 +494,6 @@ a {
 .project-name {
   font-size: 32px;
   font-weight: 700;
-  letter-spacing: -1.92px;
   line-height: 1;
   margin: 0;
 }
@@ -499,7 +501,6 @@ a {
 .project-desc {
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0;
   margin-top: 16px;
   line-height: 1.4;
 }
@@ -595,7 +596,6 @@ a {
   margin: 0;
   font-size: 64px;
   font-weight: 500;
-  letter-spacing: -3.84px;
   line-height: 1;
   color: var(--color-mid);
   text-wrap: balance;
@@ -616,7 +616,6 @@ a {
 .footer-cta-email {
   font-size: 64px;
   font-weight: 700;
-  letter-spacing: -3.84px;
   line-height: 1;
   color: var(--color-dark);
   padding-bottom: 24px;
@@ -778,7 +777,6 @@ a {
 .case-subtitle {
   font-size: 32px;
   font-weight: 500;
-  letter-spacing: -1.92px;
   line-height: 1;
   color: var(--color-mid);
 }
@@ -786,7 +784,6 @@ a {
 .case-title {
   font-size: 40px;
   font-weight: 500;
-  letter-spacing: -2.4px;
   line-height: 1;
   color: var(--color-dark);
   text-wrap: balance;
@@ -837,7 +834,6 @@ a {
 .case-meta-label {
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: -1.2px;
   line-height: 1;
   color: var(--color-mid);
 }
@@ -846,7 +842,6 @@ a {
 .case-meta-value {
   font-size: 24px;
   font-weight: 500;
-  letter-spacing: -1.44px;
   line-height: 1;
   color: var(--color-dark);
 }
@@ -866,7 +861,6 @@ a {
 .case-section-title {
   font-size: 40px;
   font-weight: 500;
-  letter-spacing: -2.4px;
   line-height: 1;
   color: var(--color-dark);
   margin-bottom: 24px;
@@ -1110,19 +1104,17 @@ a {
 }
 
 .next-case-subtitle {
-  font-family: 'Satoshi Variable', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 32px;
-  letter-spacing: -1.92px;
   color: #6C757D;
   line-height: 1;
 }
 
 .next-case-title {
-  font-family: 'Satoshi Variable', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 40px;
-  letter-spacing: -2.4px;
   color: #111;
   line-height: 1;
   margin-top: 16px;
@@ -1176,7 +1168,6 @@ a {
 @media (max-width: 1200px) {
   .hero-text {
     font-size: 32px;
-    letter-spacing: -1.5px;
   }
 
   .content {
@@ -1195,7 +1186,6 @@ a {
   .footer-cta-title,
   .footer-cta-email {
     font-size: 42px;
-    letter-spacing: -2px;
   }
 
   .footer-cta {
@@ -1301,7 +1291,6 @@ a {
 
   .hero-text {
     font-size: 24px;
-    letter-spacing: -1px;
   }
 
   .typewriter-cursor {
@@ -1375,7 +1364,6 @@ a {
   .footer-cta-title,
   .footer-cta-email {
     font-size: 28px;
-    letter-spacing: -1px;
   }
 
   .footer-links {
@@ -1397,7 +1385,6 @@ a {
 
   .case-title {
     font-size: 28px;
-    letter-spacing: -1.5px;
   }
 
   .case-hero {
@@ -1430,7 +1417,6 @@ a {
 
   .case-section-title {
     font-size: 28px;
-    letter-spacing: -1.5px;
   }
 
   .case-section-text {
@@ -1465,7 +1451,6 @@ a {
 
   .next-case-title {
     font-size: 24px;
-    letter-spacing: -1.44px;
   }
 
   .next-case-right {
@@ -1522,7 +1507,6 @@ a {
   .case-footer .footer-cta-title,
   .case-footer .footer-cta-email {
     font-size: 28px;
-    letter-spacing: -1px;
   }
 
   .case-footer .footer-links {

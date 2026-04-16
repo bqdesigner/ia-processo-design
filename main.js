@@ -1,6 +1,19 @@
 // Reduced motion preference
 var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Scroll indicator: scroll to #trabalhos
+var scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+  function scrollToWork() {
+    var target = document.getElementById('trabalhos');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
+  scrollIndicator.addEventListener('click', scrollToWork);
+  scrollIndicator.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); scrollToWork(); }
+  });
+}
+
 // Logo: smooth scroll to top
 var logoLink = document.getElementById('logoLink');
 if (logoLink) {
