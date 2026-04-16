@@ -1266,13 +1266,14 @@ a {
     display: flex;
     order: 4;
     margin-left: auto;
-    background: none;
+    background: var(--color-light);
+    border: 1px solid var(--color-low);
     border-radius: 500px;
-    padding: 12px;
+    padding: 16px;
     box-shadow: none;
     width: auto;
     height: auto;
-    transition: background 0.3s, box-shadow 0.3s;
+    transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
   }
 
   .header--scrolled .hamburger {
