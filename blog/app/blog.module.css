@@ -82,12 +82,26 @@
   color: var(--color-muted);
 }
 
+.cardTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
 .cardTitle {
   font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 8px;
   font-variation-settings: 'opsz' 14;
+}
+
+.readingTime {
+  font-size: 13px;
+  color: var(--color-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .excerpt {

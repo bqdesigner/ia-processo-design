@@ -1,4 +1,4 @@
-import { getPostsByTag } from '@/lib/notion';
+import { getPostsByTag, getPostBlocks, getReadingTime } from '@/lib/notion';
 import Link from 'next/link';
 import styles from '../../blog.module.css';
 
@@ -16,7 +16,13 @@ export async function generateMetadata({ params }) {
 export default async function TagPage({ params }) {
   const { tag } = await params;
   const decoded = decodeURIComponent(tag);
-  const posts = await getPostsByTag(decoded);
+  const rawPosts = await getPostsByTag(decoded);
+  const posts = await Promise.all(
+    rawPosts.map(async (p) => ({
+      ...p,
+      readingTime: getReadingTime(await getPostBlocks(p.id)),
+    }))
+  );
 
   return (
     <main className={styles.main}>
@@ -43,7 +49,10 @@ export default async function TagPage({ params }) {
                     </time>
                   )}
                 </div>
-                <h2 className={styles.cardTitle}>{post.title}</h2>
+                <div className={styles.cardTitleRow}>
+                  <h2 className={styles.cardTitle}>{post.title}</h2>
+                  <span className={styles.readingTime}>{post.readingTime} min</span>
+                </div>
                 {post.excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}
               </Link>
               {post.tags.length > 0 && (

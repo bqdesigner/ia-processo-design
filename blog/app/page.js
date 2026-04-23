@@ -1,4 +1,4 @@
-import { getPosts } from '@/lib/notion';
+import { getPosts, getPostBlocks, getReadingTime } from '@/lib/notion';
 import Link from 'next/link';
 import styles from './blog.module.css';
 
@@ -11,6 +11,12 @@ export const metadata = {
 
 export default async function BlogPage() {
   const posts = await getPosts();
+  const postsWithTime = await Promise.all(
+    posts.map(async (p) => ({
+      ...p,
+      readingTime: getReadingTime(await getPostBlocks(p.id)),
+    }))
+  );
 
   return (
     <main className={styles.main}>
@@ -19,11 +25,11 @@ export default async function BlogPage() {
         <h1 className={styles.title}>Blog</h1>
       </header>
 
-      {posts.length === 0 ? (
+      {postsWithTime.length === 0 ? (
         <p className={styles.empty}>Nenhum post publicado ainda.</p>
       ) : (
         <ul className={styles.list}>
-          {posts.map((post) => (
+          {postsWithTime.map((post) => (
             <li key={post.id}>
               <Link href={`/${post.slug}`} className={styles.card}>
                 <div className={styles.cardMeta}>
@@ -36,7 +42,10 @@ export default async function BlogPage() {
                     </time>
                   )}
                 </div>
-                <h2 className={styles.cardTitle}>{post.title}</h2>
+                <div className={styles.cardTitleRow}>
+                  <h2 className={styles.cardTitle}>{post.title}</h2>
+                  <span className={styles.readingTime}>{post.readingTime} min</span>
+                </div>
                 {post.excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}
               </Link>
               {post.tags.length > 0 && (
