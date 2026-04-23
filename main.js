@@ -141,20 +141,6 @@ function closeMobileMenu() {
   setTimeout(showNext, delay);
 })();
 
-// Parallax stacking: assign sticky top + z-index to content children
-(function() {
-  var content = document.querySelector('.content');
-  if (!content) return;
-  var children = content.querySelectorAll('.project-card, .footer-cta');
-  var stickyTop = 48;
-  var step = 8;
-
-  for (var i = 0; i < children.length; i++) {
-    children[i].style.top = stickyTop + (i * step) + 'px';
-    children[i].style.zIndex = i + 1;
-  }
-})();
-
 // Disable link navigation on project cards (cases not ready), except linked ones
 document.querySelectorAll('.project-card:not(.project-card--link)').forEach(function(card) {
   card.style.cursor = 'default';

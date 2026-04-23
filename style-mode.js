@@ -11,7 +11,7 @@
     document.documentElement.setAttribute('data-theme', mode);
 
     // Update all toggle buttons across the page
-    var btns = document.querySelectorAll('.style-mode button[data-mode]');
+    var btns = document.querySelectorAll('.header-controls button[data-mode]');
     btns.forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
     });
@@ -28,7 +28,7 @@
     applyMode(savedTheme);
 
     // Attach click handlers
-    var toggles = document.querySelectorAll('.style-mode');
+    var toggles = document.querySelectorAll('.header-controls');
     toggles.forEach(function (toggle) {
       toggle.addEventListener('click', function (e) {
         var btn = e.target.closest('button[data-mode]');

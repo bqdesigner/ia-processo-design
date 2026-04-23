@@ -7,6 +7,7 @@
   var shared = {
     'nav.trabalhos': 'Work',
     'nav.contato': 'Contact',
+    'nav.blog': 'Blog',
     'nav.guia': 'My AI Guide',
     'nav.freelas': 'Send freelance',
     'nav.embreve': 'Coming soon',
@@ -97,6 +98,13 @@
       'case.solucao.p5': 'I built and documented a component library specific to the app, with potential to evolve as FieldCorp\'s mobile design system. The project was validated with the stakeholder and is in development.',
       'next.title': 'Building a SaaS that has already generated R$100MM in revenue'
     },
+    'blog.html': {
+      'blog.l1': 'COMING SOON',
+      'blog.l2': 'A SPACE WITH MY THOUGHTS',
+      'blog.l3': 'ABOUT ANYTHING',
+      'blog.l4': 'AND DESIGN TOO',
+      'blog.medium': 'IN THE MEANTIME, SEE WHAT I\'VE WRITTEN ON MEDIUM'
+    },
     'case-motorista-vip.html': {
       'case.title': 'Building a SaaS that has already generated R$100MM in revenue',
       'case.desafio': 'Challenge',
@@ -140,7 +148,7 @@
     document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
 
     // Update switcher buttons
-    var btns = document.querySelectorAll('.lang-switcher button');
+    var btns = document.querySelectorAll('.header-controls button[data-lang]');
     btns.forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
@@ -226,23 +234,10 @@
     }
   }
 
-  // Inject switcher HTML
-  function injectSwitcher() {
-    var switcher = document.createElement('div');
-    switcher.className = 'lang-switcher';
-    switcher.innerHTML =
-      '<button data-lang="pt" type="button" aria-label="Português"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" rx="2" fill="#009739"/><path d="M10 1.5L18.5 7 10 12.5 1.5 7z" fill="#FEDD00"/><circle cx="10" cy="7" r="3.2" fill="#012169"/><path d="M7.2 5.8c1.2-.6 2.8-.7 4.2-.2-.8-.6-2-.9-3.1-.7-.4.1-.8.4-1.1.9z" fill="#fff"/></svg></button>' +
-      '<span class="lang-switcher-divider" aria-hidden="true">/</span>' +
-      '<button data-lang="en" type="button" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" rx="2" fill="#fff"/><path d="M0 0h20v1.077H0zm0 2.154h20v1.077H0zm0 2.154h20v1.077H0zm0 2.153h20v1.077H0zm0 2.154h20v1.077H0zm0 2.154h20v1.077H0zm0 2.154h20V14H0z" fill="#B22234"/><rect width="8" height="7.538" rx="1" fill="#3C3B6E"/><path d="M1 1l.2.6H2l-.5.4.2.6L1 2.2.3 2.6l.2-.6L0 1.6h.8zm2 0l.2.6H4l-.5.4.2.6L3 2.2l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H6l-.5.4.2.6L5 2.2l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H8l-.5.4.2.6L7 2.2l-.7.4.2-.6-.5-.4h.8zM2 2.5l.2.6H3l-.5.4.2.6-.7-.4-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H5l-.5.4.2.6L4 3.7l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H7l-.5.4.2.6L6 3.7l-.7.4.2-.6-.5-.4h.8zM1 4l.2.6H2l-.5.4.2.6L1 5.2.3 5.6l.2-.6L0 4.6h.8zm2 0l.2.6H4l-.5.4.2.6L3 5.2l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H6l-.5.4.2.6L5 5.2l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H8l-.5.4.2.6L7 5.2l-.7.4.2-.6-.5-.4h.8zM2 5.5l.2.6H3l-.5.4.2.6L2 6.7l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H5l-.5.4.2.6L4 6.7l-.7.4.2-.6-.5-.4h.8zm2 0l.2.6H7l-.5.4.2.6L6 6.7l-.7.4.2-.6-.5-.4h.8z" fill="#fff"/></svg></button>';
-
-    var header = document.getElementById('header');
-    if (header) {
-      header.appendChild(switcher);
-    } else {
-      document.body.appendChild(switcher);
-    }
-
-    switcher.addEventListener('click', function (e) {
+  function attachSwitcher() {
+    var container = document.querySelector('.header-controls');
+    if (!container) return;
+    container.addEventListener('click', function (e) {
       var btn = e.target.closest('button[data-lang]');
       if (!btn) return;
       var lang = btn.getAttribute('data-lang');
@@ -253,12 +248,15 @@
   }
 
   // Init
-  injectSwitcher();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachSwitcher);
+  } else {
+    attachSwitcher();
+  }
   if (currentLang === 'en') {
     applyLang('en');
   } else {
-    // Mark PT as active
-    var ptBtn = document.querySelector('.lang-switcher button[data-lang="pt"]');
+    var ptBtn = document.querySelector('.header-controls button[data-lang="pt"]');
     if (ptBtn) ptBtn.classList.add('active');
   }
 })();
