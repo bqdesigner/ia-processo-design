@@ -414,6 +414,8 @@ a {
   cursor: none;
 }
 
+[data-theme="dark"] .hero-nickname { color: var(--color-accent); }
+
 .wave-cursor {
   position: fixed;
   top: 0;
@@ -2137,7 +2139,7 @@ button:focus-visible,
   --fl-card: #FFFFFF;
   --fl-border: rgba(17, 17, 16, 0.08);
   --fl-border-2: rgba(17, 17, 16, 0.14);
-  --fl-bg-alt: #F2EFEA;
+  --fl-bg-alt: #f7f7f7;
 }
 [data-theme="dark"] {
   --fl-card: #242324;
@@ -2343,7 +2345,7 @@ button:focus-visible,
 /* --- Services --- */
 .fl-services {
   padding: 140px clamp(20px, 5vw, 64px);
-  background: #f7f7f7;
+  background: var(--fl-bg-alt);
 }
 .fl-services-grid {
   display: grid;
@@ -2358,13 +2360,16 @@ button:focus-visible,
   gap: 20px;
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1), background .3s ease;
+  transition:
+    opacity .7s ease var(--stagger, 0ms),
+    transform .7s cubic-bezier(.22,.61,.36,1) var(--stagger, 0ms),
+    background .3s ease 0ms;
 }
 .fl-service-card:first-child  { border-radius: 20px 0 0 20px; }
 .fl-service-card:last-child   { border-radius: 0 20px 20px 0; }
 
 @media (max-width: 1100px) and (min-width: 701px) {
-  .fl-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .fl-services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .fl-service-card:first-child  { border-radius: 20px 0 0 0; }
   .fl-service-card:nth-child(2) { border-radius: 0 20px 0 0; }
   .fl-service-card:nth-child(3) { border-radius: 0 0 0 20px; }
@@ -2378,15 +2383,10 @@ button:focus-visible,
   font-size: 22px;
   line-height: 1;
   display: inline-block;
-  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+  transition: transform .45s cubic-bezier(.34,1.56,.64,1);
 }
 .fl-service-card:hover .fl-service-icon {
-  animation: fl-iconSpin .6s cubic-bezier(.34,1.56,.64,1) forwards;
-}
-@keyframes fl-iconSpin {
-  0%   { transform: rotate(0deg) scale(1); }
-  40%  { transform: rotate(20deg) scale(1.3); }
-  100% { transform: rotate(0deg) scale(1.15); }
+  transform: rotate(15deg) scale(1.2);
 }
 .fl-service-area { font-size: 18px; font-weight: 600; color: var(--color-deep); letter-spacing: -0.01em; }
 .fl-service-desc { font-size: 15px; color: var(--color-mid); line-height: 1.55; margin: 0; max-width: 36ch; }
@@ -2417,7 +2417,7 @@ button:focus-visible,
 }
 
 @media (max-width: 700px) {
-  .fl-services-grid { grid-template-columns: 1fr; }
+  .fl-services-grid { grid-template-columns: 1fr; gap: 16px; }
   .fl-service-card, .fl-service-card:first-child, .fl-service-card:last-child { border-radius: 20px; }
 }
 
@@ -2531,7 +2531,10 @@ button:focus-visible,
   position: relative;
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1), border-color .3s ease;
+  transition:
+    opacity .6s ease var(--stagger, 0ms),
+    transform .6s cubic-bezier(.22,.61,.36,1) var(--stagger, 0ms),
+    border-color .3s ease 0ms;
   background: var(--fl-card);
 }
 .fl-payment-card.visible { opacity: 1; transform: translateY(0); }
@@ -2759,7 +2762,7 @@ button:focus-visible,
 /* --- FAQ --- */
 .fl-faq {
   padding: 140px clamp(20px, 5vw, 64px);
-  background: #f7f7f7;
+  background: var(--fl-bg-alt);
 }
 .fl-faq-inner {
   opacity: 0;
@@ -2801,11 +2804,10 @@ button:focus-visible,
   flex-shrink: 0;
 }
 .fl-faq-body {
-  overflow: hidden;
   max-height: 0;
+  overflow: hidden;
   transition: max-height .4s cubic-bezier(.22,.61,.36,1);
 }
-.fl-faq-item.open .fl-faq-body { max-height: 500px; }
 .fl-faq-body p {
   padding: 0 0 28px;
   font-size: clamp(15px, 1.1vw, 17px);

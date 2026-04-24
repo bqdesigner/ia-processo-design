@@ -1,6 +1,194 @@
-// Manda Freelas — page interactions
+// Manda Freelas — render + interactions
 (function () {
+  var data = window.MandaFreelas;
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var currentLang = localStorage.getItem('lang') || 'pt';
+  function t(obj) { return (obj && (obj[currentLang] || obj.pt)) || ''; }
+
+  // ---------- Renderers ----------
+
+  function renderHelp() {
+    var nav = document.getElementById('flHelpNav');
+    var cards = document.getElementById('flHelpCards');
+    if (!nav || !cards || !data) return;
+    nav.innerHTML = '';
+    cards.innerHTML = '';
+    data.help.forEach(function (h, i) {
+      var num = String(i + 1).padStart(2, '0');
+      var dot = document.createElement('button');
+      dot.className = 'fl-help-dot' + (i === 0 ? ' active' : '');
+      dot.dataset.idx = i;
+      dot.innerHTML = '<span class="fl-help-dot-num fl-mono">' + num + '</span><span class="fl-help-dot-tag">' + t(h.tag) + '</span>';
+      nav.appendChild(dot);
+
+      var card = document.createElement('div');
+      card.className = 'fl-help-card-item' + (i === 0 ? ' active' : ' future');
+      card.dataset.idx = i;
+      card.innerHTML = '<span class="fl-help-num fl-mono">' + num + ' / ' + String(data.help.length).padStart(2, '0') + '</span>' +
+                      '<h2 class="fl-help-title">' + t(h.title) + '</h2>' +
+                      '<p class="fl-help-body">' + t(h.body) + '</p>';
+      cards.appendChild(card);
+    });
+    var bar = document.createElement('div');
+    bar.className = 'fl-help-progress-bar';
+    bar.innerHTML = '<div class="fl-help-progress-fill" id="helpProgressFill"></div>';
+    nav.appendChild(bar);
+  }
+
+  function renderServices() {
+    var grid = document.getElementById('flServicesGrid');
+    if (!grid || !data) return;
+    grid.innerHTML = '';
+    data.services.forEach(function (s, i) {
+      var card = document.createElement('div');
+      card.className = 'fl-service-card';
+      card.style.setProperty('--service-accent', s.color);
+      card.style.setProperty('--stagger', (i * 120) + 'ms');
+      var list = s.items.map(function (it) { return '<li>' + t(it) + '</li>'; }).join('');
+      card.innerHTML =
+        '<div class="fl-service-top">' +
+          '<span class="fl-service-icon" style="color:' + s.color + '">' + s.icon + '</span>' +
+          '<span class="fl-service-area">' + t(s.name) + '</span>' +
+        '</div>' +
+        '<p class="fl-service-desc">' + t(s.desc) + '</p>' +
+        '<ul class="fl-service-list">' + list + '</ul>';
+      grid.appendChild(card);
+    });
+  }
+
+  function renderProcess() {
+    var wrap = document.getElementById('flProcessSteps');
+    if (!wrap || !data) return;
+    wrap.innerHTML = '';
+    data.process.forEach(function (p, i) {
+      var num = String(i + 1).padStart(2, '0');
+      var step = document.createElement('div');
+      step.className = 'fl-process-step';
+      step.dataset.idx = i;
+      step.innerHTML =
+        '<div class="fl-process-dot"></div>' +
+        '<div class="fl-process-content">' +
+          '<div class="fl-process-header">' +
+            '<span class="fl-mono fl-process-num">' + num + '</span>' +
+            '<span class="fl-process-name">' + t(p.name) + '</span>' +
+            '<span class="fl-mono fl-process-dur">' + t(p.dur) + '</span>' +
+          '</div>' +
+          '<p class="fl-process-desc">' + t(p.desc) + '</p>' +
+        '</div>';
+      wrap.appendChild(step);
+    });
+  }
+
+  function renderPayment() {
+    var grid = document.getElementById('flPaymentGrid');
+    if (!grid || !data) return;
+    var badgeLabel = { pt: 'Mais comum', en: 'Most common' };
+    grid.innerHTML = '';
+    data.payment.forEach(function (p, i) {
+      var card = document.createElement('div');
+      card.className = 'fl-payment-card' + (p.highlight ? ' highlight' : '');
+      card.style.setProperty('--stagger', (i * 100) + 'ms');
+      card.innerHTML =
+        '<div class="fl-payment-icon">' + p.icon + '</div>' +
+        '<h3 class="fl-payment-name">' + t(p.name) + '</h3>' +
+        '<p class="fl-payment-desc">' + t(p.desc) + '</p>' +
+        (p.highlight ? '<span class="fl-payment-badge">' + t(badgeLabel) + '</span>' : '');
+      grid.appendChild(card);
+    });
+  }
+
+  function renderFaq() {
+    var list = document.getElementById('flFaqList');
+    if (!list || !data) return;
+    list.innerHTML = '';
+    data.faq.forEach(function (f, i) {
+      var item = document.createElement('div');
+      item.className = 'fl-faq-item' + (i === 0 ? ' open' : '');
+      item.innerHTML =
+        '<button class="fl-faq-q">' +
+          '<span>' + t(f.q) + '</span>' +
+          '<span class="fl-faq-icon">' + (i === 0 ? '−' : '+') + '</span>' +
+        '</button>' +
+        '<div class="fl-faq-body"><p>' + t(f.a) + '</p></div>';
+      list.appendChild(item);
+    });
+  }
+
+  function renderFormTipos() {
+    var wrap = document.getElementById('cfTipos');
+    if (!wrap || !data) return;
+    wrap.innerHTML = '';
+    data.services.forEach(function (s) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cf-tipo-btn';
+      btn.dataset.tipo = s.id;
+      btn.textContent = t(s.name);
+      wrap.appendChild(btn);
+    });
+  }
+
+  function renderFormPagamento() {
+    var wrap = document.getElementById('cfPagamento');
+    if (!wrap || !data) return;
+    wrap.innerHTML = '';
+    data.payment.forEach(function (p) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cf-pag-btn';
+      btn.dataset.pag = p.name.pt;
+      btn.textContent = t(p.name);
+      wrap.appendChild(btn);
+    });
+  }
+
+  function renderFormTemas() {
+    var wrap = document.getElementById('cfTemaList');
+    if (!wrap || !data) return;
+    wrap.innerHTML = '';
+    data.form.temas.forEach(function (tm) {
+      var label = document.createElement('label');
+      label.className = 'cf-check-item';
+      label.dataset.tema = tm.value;
+      label.innerHTML = '<input type="checkbox"><span>' + t(tm.label) + '</span>';
+      wrap.appendChild(label);
+    });
+    // "← Mentoria" back label
+    var backMentoria = document.getElementById('cfBackMentoria');
+    var mentoriaSvc = data.services.find(function (s) { return s.id === 'Mentoria'; });
+    if (backMentoria && mentoriaSvc) backMentoria.textContent = t(mentoriaSvc.name);
+  }
+
+  function applyPlaceholders() {
+    if (!data) return;
+    var map = [
+      ['#cfOutro', data.form.placeholders.outro],
+      ['#cfDesc',  data.form.placeholders.desc],
+      ['#cfDatas', data.form.placeholders.datas]
+    ];
+    map.forEach(function (pair) {
+      var el = document.querySelector(pair[0]);
+      if (el) el.setAttribute('placeholder', t(pair[1]));
+    });
+  }
+
+  function renderAll() {
+    renderHelp();
+    renderServices();
+    renderProcess();
+    renderPayment();
+    renderFaq();
+    renderFormTipos();
+    renderFormPagamento();
+    renderFormTemas();
+    applyPlaceholders();
+    // Open FAQ items need their max-height set explicitly for CSS transition
+    setTimeout(function () { if (typeof initFaqOpen === 'function') initFaqOpen(); }, 0);
+  }
+
+  renderAll();
+
+  // ---------- Interactions ----------
 
   // Hero: reveal on load
   (function () {
@@ -9,7 +197,7 @@
     setTimeout(function () { inner.classList.add('loaded'); }, 80);
   })();
 
-  // Scroll indicator — click/enter scrolls to Help section
+  // Scroll indicator
   (function () {
     var indicator = document.querySelector('.fl-hero .scroll-indicator');
     if (!indicator) return;
@@ -23,32 +211,23 @@
     });
   })();
 
-  // Generic IntersectionObserver reveal
-  function revealOn(selector, threshold) {
-    var els = document.querySelectorAll(selector);
-    if (!els.length) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
+  // Reveal on scroll — observe fresh each render
+  var revealed = new WeakSet();
+  function attachReveal() {
+    var selectors = ['.fl-service-card', '.fl-payment-card', '.fl-faq-inner', '.fl-contact-inner'];
+    selectors.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el) {
+        if (revealed.has(el)) { el.classList.add('visible'); return; }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); revealed.add(e.target); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.1 });
+        io.observe(el);
       });
-    }, { threshold: threshold || 0.15 });
-    els.forEach(function (el) { io.observe(el); });
+    });
   }
-  revealOn('.fl-service-card', 0.1);
-  revealOn('.fl-payment-card', 0.15);
-  revealOn('.fl-faq-inner', 0.1);
-  revealOn('.fl-contact-inner', 0.1);
-
-  // Stagger reveal for services and payment cards
-  (function stagger() {
-    var services = document.querySelectorAll('.fl-service-card');
-    services.forEach(function (c, i) { c.style.transitionDelay = (i * 120) + 'ms'; });
-    var payments = document.querySelectorAll('.fl-payment-card');
-    payments.forEach(function (c, i) { c.style.transitionDelay = (i * 100) + 'ms'; });
-  })();
+  attachReveal();
 
   // Sticky scroll progress helper
   function stickyProgress(containerEl, onChange) {
@@ -63,16 +242,17 @@
     onScroll();
   }
 
-  // Help section
+  // Help sticky — re-queries each tick to survive re-renders
   (function helpSection() {
     var container = document.getElementById('helpContainer');
     if (!container) return;
-    var dots = container.querySelectorAll('.fl-help-dot');
-    var items = container.querySelectorAll('.fl-help-card-item');
-    var fill = document.getElementById('helpProgressFill');
-    var total = items.length;
 
     stickyProgress(container, function (p) {
+      var dots = container.querySelectorAll('.fl-help-dot');
+      var items = container.querySelectorAll('.fl-help-card-item');
+      var fill = document.getElementById('helpProgressFill');
+      var total = items.length;
+      if (!total) return;
       if (fill) fill.style.height = (p * 100) + '%';
       var idx = Math.min(total - 1, Math.floor(p * total));
       dots.forEach(function (d, i) {
@@ -87,51 +267,87 @@
       });
     });
 
-    dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
-        var totalPx = container.offsetHeight - window.innerHeight;
-        var target = container.offsetTop + (i / total) * totalPx;
-        window.scrollTo({ top: target, behavior: 'smooth' });
-      });
+    // Delegate dot click
+    container.addEventListener('click', function (e) {
+      var dot = e.target.closest('.fl-help-dot');
+      if (!dot) return;
+      var i = parseInt(dot.dataset.idx, 10) || 0;
+      var total = container.querySelectorAll('.fl-help-card-item').length || 1;
+      var totalPx = container.offsetHeight - window.innerHeight;
+      var target = container.offsetTop + (i / total) * totalPx;
+      window.scrollTo({ top: target, behavior: 'smooth' });
     });
   })();
 
-  // Process section
+  // Process sticky — re-queries each tick
   (function processSection() {
     var container = document.getElementById('processContainer');
     if (!container) return;
-    var steps = container.querySelectorAll('.fl-process-step');
-    var fill = document.getElementById('processLineFill');
-    var total = steps.length;
-
     stickyProgress(container, function (p) {
-      var activeCount = Math.ceil(p * total);
+      var stepsWrap = container.querySelector('.fl-process-steps');
+      if (!stepsWrap) return;
+      var steps = stepsWrap.querySelectorAll('.fl-process-step');
+      var fill = document.getElementById('processLineFill');
+      var total = steps.length;
+      if (!total) return;
+      var fillPct = Math.min(100, p * 100);
+      if (fill) fill.style.height = fillPct + '%';
+      var wrapRect = stepsWrap.getBoundingClientRect();
+      if (!wrapRect.height) return;
+      var thresholds = [];
+      steps.forEach(function (s) {
+        var dot = s.querySelector('.fl-process-dot');
+        var ref = dot || s;
+        var r = ref.getBoundingClientRect();
+        var center = r.top + r.height / 2 - wrapRect.top;
+        thresholds.push((center / wrapRect.height) * 100);
+      });
       steps.forEach(function (s, i) {
-        s.classList.toggle('active', i < activeCount);
-        s.classList.toggle('current', i === activeCount - 1);
+        var reached = fillPct >= thresholds[i];
+        var next = thresholds[i + 1];
+        s.classList.toggle('active', reached);
+        s.classList.toggle('current', reached && (next == null || fillPct < next));
       });
-      if (fill) {
-        var fillPct = Math.min(100, (p * total) / Math.max(1, total - 1) * 100);
-        fill.style.height = fillPct + '%';
-      }
     });
   })();
 
-  // FAQ accordion
+  // FAQ accordion — delegation + scrollHeight-based max-height
+  function openFaq(item) {
+    var body = item.querySelector('.fl-faq-body');
+    if (!body) return;
+    body.style.maxHeight = body.scrollHeight + 'px';
+    item.classList.add('open');
+    var icon = item.querySelector('.fl-faq-icon');
+    if (icon) icon.textContent = '−';
+  }
+  function closeFaq(item) {
+    var body = item.querySelector('.fl-faq-body');
+    if (!body) return;
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.offsetHeight; // force reflow
+    body.style.maxHeight = '0px';
+    item.classList.remove('open');
+    var icon = item.querySelector('.fl-faq-icon');
+    if (icon) icon.textContent = '+';
+  }
+  function initFaqOpen() {
+    document.querySelectorAll('.fl-faq-item.open').forEach(function (it) {
+      var body = it.querySelector('.fl-faq-body');
+      if (body) body.style.maxHeight = body.scrollHeight + 'px';
+    });
+  }
   (function faq() {
-    var items = document.querySelectorAll('.fl-faq-item');
-    items.forEach(function (item) {
-      var q = item.querySelector('.fl-faq-q');
-      var icon = item.querySelector('.fl-faq-icon');
+    document.addEventListener('click', function (e) {
+      var q = e.target.closest('.fl-faq-q');
       if (!q) return;
-      q.addEventListener('click', function () {
-        var isOpen = item.classList.toggle('open');
-        if (icon) icon.textContent = isOpen ? '−' : '+';
-      });
+      var item = q.closest('.fl-faq-item');
+      if (!item) return;
+      if (item.classList.contains('open')) closeFaq(item);
+      else openFaq(item);
     });
   })();
 
-  // Contact form — multi-step
+  // Contact form — delegation-based so re-renders don't lose wiring
   (function contactForm() {
     var form = document.getElementById('contactForm');
     if (!form) return;
@@ -140,7 +356,7 @@
       0: form.querySelector('[data-step="0"]'),
       1: form.querySelector('[data-step="1"]'),
       2: form.querySelector('[data-step="2"]'),
-      3: form.querySelector('[data-step="3"]'),
+      3: form.querySelector('[data-step="3"]')
     };
     var state = {
       tipo: null,
@@ -149,13 +365,7 @@
       desc: '',
       tema: [],
       datas: '',
-      pagamento: null,
-    };
-
-    var SERVICE_OPTIONS = {
-      Design: ['Design de apps', 'Redesign de produtos digitais', 'Design Systems', 'Protótipos navegáveis', 'Telas prontas para dev', 'Relatório de usabilidade'],
-      Web: ['Landing Page', 'Site institucional', 'Portfólio', 'E-commerce', 'Site em React'],
-      Produto: ['Diagnóstico de produto', 'Roadmap de melhorias', 'Fluxos de onboarding', 'Dashboard & dados', 'Consultoria estratégica'],
+      pagamento: null
     };
 
     function showStep(n) {
@@ -164,112 +374,117 @@
       });
     }
 
+    function serviceById(id) {
+      return data.services.find(function (s) { return s.id === id; });
+    }
+
     function renderChecklist() {
       var list = form.querySelector('#cfChecklist');
       var backTipoSpan = form.querySelector('.cf-back-tipo');
       if (!list || !state.tipo) return;
-      if (backTipoSpan) backTipoSpan.textContent = state.tipo;
+      var svc = serviceById(state.tipo);
+      if (!svc) return;
+      if (backTipoSpan) backTipoSpan.textContent = t(svc.name);
       list.innerHTML = '';
-      var items = SERVICE_OPTIONS[state.tipo] || [];
-      items.forEach(function (it) {
+      svc.items.forEach(function (itObj) {
         var label = document.createElement('label');
         label.className = 'cf-check-item';
-        label.dataset.item = it;
-        label.innerHTML = '<input type="checkbox"><span>' + it + '</span>';
-        label.addEventListener('click', function (e) {
-          if (e.target.tagName !== 'INPUT') e.preventDefault();
-          var idx = state.selected.indexOf(it);
-          if (idx === -1) state.selected.push(it);
-          else state.selected.splice(idx, 1);
-          label.classList.toggle('checked', state.selected.indexOf(it) !== -1);
-          validateA();
-        });
+        label.dataset.item = itObj.pt;
+        var shown = t(itObj);
+        if (state.selected.indexOf(itObj.pt) !== -1) label.classList.add('checked');
+        label.innerHTML = '<input type="checkbox"' + (state.selected.indexOf(itObj.pt) !== -1 ? ' checked' : '') + '><span>' + shown + '</span>';
         list.appendChild(label);
       });
     }
 
-    // Tipo buttons
-    form.querySelectorAll('.cf-tipo-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var t = btn.dataset.tipo;
-        if (state.tipo === t) {
+    // Delegate everything on form
+    form.addEventListener('click', function (e) {
+      var tipoBtn = e.target.closest('.cf-tipo-btn');
+      if (tipoBtn) {
+        var tp = tipoBtn.dataset.tipo;
+        if (state.tipo === tp) {
           state.tipo = null;
           form.querySelectorAll('.cf-tipo-btn').forEach(function (b) { b.classList.remove('active'); });
           showStep(0);
           return;
         }
-        state.tipo = t;
-        form.querySelectorAll('.cf-tipo-btn').forEach(function (b) { b.classList.toggle('active', b === btn); });
+        state.tipo = tp;
+        form.querySelectorAll('.cf-tipo-btn').forEach(function (b) { b.classList.toggle('active', b === tipoBtn); });
         state.selected = [];
         state.tema = [];
-        if (t === 'Mentoria') {
-          showStep(2);
-        } else {
-          renderChecklist();
-          showStep(1);
-        }
-      });
-    });
+        if (tp === 'Mentoria') { showStep(2); }
+        else { renderChecklist(); showStep(1); }
+        return;
+      }
 
-    // Back buttons
-    form.querySelectorAll('.cf-back-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        showStep(0);
-      });
-    });
+      var back = e.target.closest('.cf-back-btn');
+      if (back) { showStep(0); return; }
 
-    // Outro text
-    var outroInput = form.querySelector('#cfOutro');
-    if (outroInput) outroInput.addEventListener('input', function () {
-      state.outro = outroInput.value.trim();
-      validateA();
-    });
-    // Desc
-    var descInput = form.querySelector('#cfDesc');
-    if (descInput) descInput.addEventListener('input', function () {
-      state.desc = descInput.value.trim();
-    });
-    // Pagamento
-    form.querySelectorAll('.cf-pag-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var p = btn.dataset.pag;
+      var pag = e.target.closest('.cf-pag-btn');
+      if (pag) {
+        var p = pag.dataset.pag;
         if (state.pagamento === p) {
           state.pagamento = null;
-          btn.classList.remove('active');
+          pag.classList.remove('active');
         } else {
           state.pagamento = p;
-          form.querySelectorAll('.cf-pag-btn').forEach(function (b) { b.classList.toggle('active', b === btn); });
+          form.querySelectorAll('.cf-pag-btn').forEach(function (b) { b.classList.toggle('active', b === pag); });
         }
-      });
-    });
+        return;
+      }
 
-    // Mentoria tema checklist
-    form.querySelectorAll('#cfTemaList .cf-check-item').forEach(function (label) {
-      label.addEventListener('click', function (e) {
+      var checkItem = e.target.closest('.cf-check-item');
+      if (checkItem) {
         if (e.target.tagName !== 'INPUT') e.preventDefault();
-        var t = label.dataset.tema;
-        var idx = state.tema.indexOf(t);
-        if (idx === -1) state.tema.push(t);
-        else state.tema.splice(idx, 1);
-        label.classList.toggle('checked', state.tema.indexOf(t) !== -1);
-        validateB();
-      });
-    });
-    // Mentoria datas
-    var datasInput = form.querySelector('#cfDatas');
-    if (datasInput) datasInput.addEventListener('input', function () {
-      state.datas = datasInput.value.trim();
-      validateB();
+        // Is this a checklist item or a mentoria tema?
+        if (checkItem.closest('#cfChecklist')) {
+          var key = checkItem.dataset.item;
+          var idx = state.selected.indexOf(key);
+          if (idx === -1) state.selected.push(key); else state.selected.splice(idx, 1);
+          checkItem.classList.toggle('checked', state.selected.indexOf(key) !== -1);
+          validateA();
+        } else if (checkItem.closest('#cfTemaList')) {
+          var tm = checkItem.dataset.tema;
+          var ti = state.tema.indexOf(tm);
+          if (ti === -1) state.tema.push(tm); else state.tema.splice(ti, 1);
+          checkItem.classList.toggle('checked', state.tema.indexOf(tm) !== -1);
+          validateB();
+        }
+        return;
+      }
+
+      if (e.target.id === 'cfReset') {
+        state.tipo = null; state.selected = []; state.outro = ''; state.desc = '';
+        state.tema = []; state.datas = ''; state.pagamento = null;
+        form.querySelectorAll('.cf-tipo-btn, .cf-pag-btn').forEach(function (b) { b.classList.remove('active'); });
+        form.querySelectorAll('.cf-check-item').forEach(function (l) {
+          l.classList.remove('checked');
+          var cb = l.querySelector('input'); if (cb) cb.checked = false;
+        });
+        var outroInput = form.querySelector('#cfOutro');
+        var descInput = form.querySelector('#cfDesc');
+        var datasInput = form.querySelector('#cfDatas');
+        if (outroInput) outroInput.value = '';
+        if (descInput) descInput.value = '';
+        if (datasInput) datasInput.value = '';
+        validateA(); validateB();
+        showStep(0);
+      }
     });
 
-    // Submit buttons validation
-    var submitA = form.querySelector('#cfSubmitA');
-    var submitB = form.querySelector('#cfSubmitB');
+    form.addEventListener('input', function (e) {
+      if (e.target.id === 'cfOutro') { state.outro = e.target.value.trim(); validateA(); }
+      if (e.target.id === 'cfDesc')  { state.desc = e.target.value.trim(); }
+      if (e.target.id === 'cfDatas') { state.datas = e.target.value.trim(); validateB(); }
+    });
+
     function validateA() {
+      var submitA = form.querySelector('#cfSubmitA');
       if (!submitA) return;
       submitA.disabled = !(state.selected.length || state.outro);
     }
     function validateB() {
+      var submitB = form.querySelector('#cfSubmitB');
       if (!submitB) return;
       submitB.disabled = !(state.tema.length && state.datas);
     }
@@ -287,46 +502,12 @@
       window.location.href = 'mailto:bqdesigner@outlook.com?subject=' + encodeURIComponent('Freela - ' + state.tipo) + '&body=' + encodeURIComponent(body);
       showStep(3);
     });
-
-    // Reset
-    var resetBtn = form.querySelector('#cfReset');
-    if (resetBtn) resetBtn.addEventListener('click', function () {
-      state.tipo = null;
-      state.selected = [];
-      state.outro = '';
-      state.desc = '';
-      state.tema = [];
-      state.datas = '';
-      state.pagamento = null;
-      form.querySelectorAll('.cf-tipo-btn, .cf-pag-btn').forEach(function (b) { b.classList.remove('active'); });
-      form.querySelectorAll('.cf-check-item').forEach(function (l) { l.classList.remove('checked'); var cb = l.querySelector('input'); if (cb) cb.checked = false; });
-      if (outroInput) outroInput.value = '';
-      if (descInput) descInput.value = '';
-      if (datasInput) datasInput.value = '';
-      validateA(); validateB();
-      showStep(0);
-    });
-
-    // Placeholder i18n support
-    function updatePlaceholders() {
-      var lang = localStorage.getItem('lang') || 'pt';
-      form.querySelectorAll('[data-placeholder-pt]').forEach(function (el) {
-        var val = lang === 'en' ? el.getAttribute('data-placeholder-en') : el.getAttribute('data-placeholder-pt');
-        if (val) el.setAttribute('placeholder', val);
-      });
-    }
-    updatePlaceholders();
-    // Hook into language switcher clicks to update placeholders
-    var langContainer = document.querySelector('.header-controls');
-    if (langContainer) {
-      langContainer.addEventListener('click', function (e) {
-        var btn = e.target.closest('button[data-lang]');
-        if (!btn) return;
-        setTimeout(updatePlaceholders, 10);
-      });
-    }
   })();
 
-  // FAQ scroll position — nudge when opening long items
-  // (handled by CSS max-height — no JS needed)
+  // ---------- Language change → re-render ----------
+  document.addEventListener('langchange', function (e) {
+    currentLang = (e.detail && e.detail.lang) || localStorage.getItem('lang') || 'pt';
+    renderAll();
+    attachReveal();
+  });
 })();
