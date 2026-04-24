@@ -10,7 +10,7 @@
     'nav.blog': 'Blog',
     'nav.guia': 'My AI Guide',
     'nav.freelas': 'Send freelance',
-    'nav.embreve': 'Coming soon',
+    'nav.embreve': 'New',
     'nav.email.label': 'Have a project?',
     'skip': 'Skip to content',
     'footer.cta': "Let's work together?",

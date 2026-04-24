@@ -167,12 +167,28 @@ a {
   color: var(--color-dark);
   padding: 8px 16px;
   border-radius: 500px;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s;
   white-space: nowrap;
+  position: relative;
 }
 
-.nav a:hover, .nav a:active {
-  background: var(--color-hover);
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.nav a:hover::after,
+.nav a:active::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .nav-divider {
@@ -348,10 +364,7 @@ a {
   transition: background 0.2s;
 }
 
-.header-controls button:hover {
-  background: var(--color-hover);
-}
-
+.header-controls button:hover,
 .header-controls button.active {
   background: var(--color-hover);
 }
@@ -717,14 +730,17 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0;
+  right: 0;
   height: 2px;
   background: var(--color-accent);
-  transition: width 0.4s ease;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
 }
 
 .footer-cta-email:hover::after {
-  width: 100%;
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .footer-cta-email:not(:hover)::after {
@@ -768,7 +784,9 @@ a {
   width: 100%;
   margin-top: 48px;
   padding-top: 40px;
+  padding-bottom: 40px;
   border-top: 1px solid var(--color-low);
+  border-bottom: 1px solid var(--color-low);
 }
 
 .footer-col h4 {
@@ -798,22 +816,38 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s;
   white-space: nowrap;
   width: fit-content;
+  position: relative;
 }
 
-.footer-col a:hover,
-.footer-col a:active {
-  background: var(--color-hover);
-  color: var(--color-dark);
+.footer-col a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.footer-col a:hover::after,
+.footer-col a:active::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .footer-col p {
-  margin: 0;
-  color: var(--color-mid);
+  margin: 0 0 0 -16px;
+  color: var(--color-dark);
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 8px 16px;
   line-height: 1.5;
-  font-size: 15px;
 }
 
 .footer-col-disabled {
@@ -1211,6 +1245,10 @@ a {
   align-items: baseline;
   transition: padding-left .3s ease;
   cursor: default;
+}
+
+.experience-item:last-child {
+  border-bottom: none;
 }
 
 .experience-item:hover {
@@ -1789,10 +1827,6 @@ a {
   background: #191819;
 }
 
-[data-theme="dark"] .nav a:hover,
-[data-theme="dark"] .nav a:active {
-  background: var(--color-hover);
-}
 
 [data-theme="dark"] .about-me-btn {
   border-color: var(--color-low);
@@ -1880,14 +1914,15 @@ a {
   border-color: #E8E8E8;
 }
 
-[data-theme="dark"] .back-to-top:hover .back-to-top-icon svg path {
-  stroke: #191819;
-}
-
 [data-theme="dark"] .header-controls button:hover,
 [data-theme="dark"] .header-controls button.active {
   background: var(--color-hover);
 }
+
+[data-theme="dark"] .back-to-top:hover .back-to-top-icon svg path {
+  stroke: #191819;
+}
+
 
 [data-theme="dark"] .footer-credit-text {
   color: #FFFFFF;
@@ -1902,8 +1937,9 @@ a {
 }
 
 /* ===== NAV CURRENT (active page) ===== */
-.nav-current {
-  background: var(--color-hover) !important;
+.nav-current::after {
+  transform: scaleX(1) !important;
+  transform-origin: left !important;
 }
 
 /* ===== BLOG PLACEHOLDER ===== */
