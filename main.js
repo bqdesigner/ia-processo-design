@@ -14,14 +14,17 @@ if (scrollIndicator) {
   });
 }
 
-// Logo: smooth scroll to top
-var logoLink = document.getElementById('logoLink');
-if (logoLink) {
+// Logo: smooth scroll to top (logo lives in header partial — wait for it)
+function bindLogoSmoothScroll() {
+  var logoLink = document.getElementById('logoLink');
+  if (!logoLink) return;
   logoLink.addEventListener('click', function(e) {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+if (document.getElementById('logoLink')) bindLogoSmoothScroll();
+else document.addEventListener('partials-ready', bindLogoSmoothScroll);
 
 // Back to top smooth scroll
 var backToTop = document.getElementById('backToTop');
@@ -32,44 +35,7 @@ if (backToTop) {
   });
 }
 
-// Header: blur nav on scroll + hide nav/email on scroll down, show on scroll up
-const header = document.getElementById('header');
-var lastScrollY = 0;
-
-window.addEventListener('scroll', () => {
-  var currentY = window.scrollY;
-  header.classList.toggle('header--scrolled', currentY > 50);
-
-  if (currentY > 100) {
-    if (currentY > lastScrollY) {
-      header.classList.add('header--hidden');
-    } else {
-      header.classList.remove('header--hidden');
-    }
-  } else {
-    header.classList.remove('header--hidden');
-  }
-
-  lastScrollY = currentY;
-}, { passive: true });
-
-// Hamburger menu toggle
-const hamburger = document.getElementById('hamburger');
-const overlay = document.getElementById('mobileOverlay');
-
-hamburger.addEventListener('click', () => {
-  const isOpen = hamburger.classList.toggle('hamburger--open');
-  overlay.classList.toggle('mobile-overlay--open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-  hamburger.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-});
-
-function closeMobileMenu() {
-  hamburger.classList.remove('hamburger--open');
-  overlay.classList.remove('mobile-overlay--open');
-  document.body.style.overflow = '';
-  hamburger.setAttribute('aria-label', 'Abrir menu');
-}
+// Header scroll, hamburger, closeMobileMenu live in partials/loader.js
 
 // Typewriter animation — word by word, cursor follows last visible word
 (function() {

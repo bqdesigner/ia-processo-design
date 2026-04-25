@@ -37,6 +37,18 @@
     wireTheme();
     wireHeaderScroll();
     wireHamburger();
+    wireControlsToggle();
+  }
+
+  function wireControlsToggle() {
+    var controls = document.querySelector('.header-controls');
+    var toggle = controls && controls.querySelector('.header-controls-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function () {
+      var open = controls.classList.toggle('expanded');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Fechar opções' : 'Abrir opções');
+    });
   }
 
   function wireTheme() {
