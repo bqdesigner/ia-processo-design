@@ -343,13 +343,35 @@ a {
   padding: 8px 16px;
   font-family: var(--font);
   font-size: 20px;
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, padding 0.35s ease;
 }
 
 .header--scrolled .header-controls {
   opacity: 1;
   transform: none;
   pointer-events: auto;
+}
+
+.header-controls-items {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 0.4s ease, opacity 0.25s ease 0.05s;
+  pointer-events: none;
+}
+
+.header-controls.expanded .header-controls-items {
+  max-width: 320px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header-controls:not(.expanded) {
+  padding: 8px;
+  gap: 0;
 }
 
 .header-controls button {
@@ -373,6 +395,29 @@ a {
   color: var(--color-muted);
   font-size: 24px;
   line-height: 1;
+}
+
+.header-controls-toggle {
+  border: none;
+  background: transparent;
+  padding: 8px;
+  border-radius: 500px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-deep);
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.header-controls-toggle:hover {
+  background: var(--color-hover);
+}
+.header-controls-toggle svg {
+  transition: transform 0.35s ease;
+}
+.header-controls.expanded .header-controls-toggle svg {
+  transform: rotate(45deg);
 }
 
 /* ===== HERO ===== */
@@ -1578,6 +1623,19 @@ a {
     display: none;
   }
 
+  .header-controls .header-controls-toggle { display: none !important; }
+  .header-controls-items {
+    display: flex;
+    max-width: none;
+    opacity: 1;
+    overflow: visible;
+    pointer-events: auto;
+  }
+  .header-controls:not(.expanded) {
+    padding: 8px;
+    gap: 8px;
+  }
+
   .nav {
     display: none;
   }
@@ -2512,6 +2570,23 @@ button:focus-visible,
 }
 .fl-process-step:not(.active) .fl-process-desc { display: none; }
 
+@media (max-width: 700px) {
+  .fl-process-container { height: auto; }
+  .fl-process-sticky {
+    position: static;
+    height: auto;
+    padding: 80px clamp(20px, 5vw, 64px);
+    overflow: visible;
+  }
+  .fl-process-line-fill { height: 100% !important; }
+  .fl-process-step { opacity: 1; }
+  .fl-process-step:not(.active) .fl-process-desc { display: block; }
+  .fl-process-step .fl-process-dot {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+  }
+}
+
 /* --- Payment --- */
 .fl-payment {
   padding: 140px clamp(20px, 5vw, 64px);
@@ -2820,4 +2895,15 @@ button:focus-visible,
 /* Responsive tweaks */
 @media (max-width: 900px) {
   .fl-payment-card.highlight { order: -1; }
+}
+
+/* Dark mode: lift motorista-vip card off body bg (both are #191819) */
+[data-theme="dark"] .project-card[href*="motorista-vip"] {
+  background: #2A2A2A !important;
+}
+[data-theme="dark"] .project-card[href*="motorista-vip"] .project-blur {
+  --blur-color: rgba(42, 42, 42, 0.8);
+}
+[data-theme="dark"] .project-card[href*="motorista-vip"] .project-info {
+  background: rgba(42, 42, 42, 0.7) !important;
 }
