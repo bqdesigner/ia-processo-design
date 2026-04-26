@@ -1450,16 +1450,17 @@ a {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  max-width: 1344px;
+  max-width: 1164px;
   margin: 0 auto;
-  padding: 64px 0 48px;
+  padding: 64px 48px 48px;
 }
 
 /* ===== NEXT CASE ===== */
 .next-case-wrapper {
   width: 100%;
-  max-width: 1344px;
+  max-width: 1164px;
   margin: 80px auto 0;
+  padding: 0 48px;
 }
 
 .next-case {
@@ -1593,7 +1594,7 @@ a {
   }
 
   .case-footer {
-    padding: 64px 0;
+    padding: 64px 48px;
   }
 
   .next-case-right {
