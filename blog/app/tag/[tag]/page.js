@@ -30,7 +30,12 @@ export default async function TagPage({ params }) {
   return (
     <>
       <header className={styles.header}>
-        <Link href="/" className={styles.back}>← Blog</Link>
+        <Link href="/" className={styles.back}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Voltar
+        </Link>
         <h1 className={styles.title}>#{decoded}</h1>
         <p className={styles.sub}>{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
       </header>
