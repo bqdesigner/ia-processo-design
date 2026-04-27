@@ -15,10 +15,21 @@
     var controls = document.querySelector('.header-controls');
     var toggle = controls && controls.querySelector('.header-controls-toggle');
     if (!toggle) return;
-    toggle.addEventListener('click', function () {
+    function close() {
+      controls.classList.remove('expanded');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir opções');
+    }
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
       var open = controls.classList.toggle('expanded');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Fechar opções' : 'Abrir opções');
+    });
+    document.addEventListener('click', function (e) {
+      if (!controls.classList.contains('expanded')) return;
+      if (controls.contains(e.target)) return;
+      close();
     });
   }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './Header.module.css';
 
 const SITE = 'https://brunoqueiros.com';
@@ -44,6 +44,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState('light');
   const [controlsExpanded, setControlsExpanded] = useState(false);
+  const controlsRef = useRef(null);
 
   useEffect(() => {
     setTheme(document.documentElement.getAttribute('data-theme') || 'light');
@@ -52,6 +53,17 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (!controlsExpanded) return;
+    function onDocClick(e) {
+      if (controlsRef.current && !controlsRef.current.contains(e.target)) {
+        setControlsExpanded(false);
+      }
+    }
+    document.addEventListener('click', onDocClick);
+    return () => document.removeEventListener('click', onDocClick);
+  }, [controlsExpanded]);
 
   function applyTheme(next) {
     setTheme(next);
@@ -80,7 +92,7 @@ export default function Header() {
           <span /><span /><span />
         </button>
 
-        <div className={`${styles.controls} ${controlsExpanded ? styles.controlsExpanded : ''}`}>
+        <div ref={controlsRef} className={`${styles.controls} ${controlsExpanded ? styles.controlsExpanded : ''}`}>
           <div className={styles.controlsItems}>
             <button
               type="button"
