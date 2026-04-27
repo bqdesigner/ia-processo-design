@@ -54,3 +54,8 @@ a {
   background: #191819;
   color: #ffffff;
 }
+
+[data-theme="dark"] ::selection {
+  background: #E8E8E8;
+  color: #191819;
+}
