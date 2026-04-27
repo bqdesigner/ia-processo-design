@@ -27,8 +27,7 @@ export default function Sidebar({ toc, tags, title }) {
   function jump(id, idx) {
     const el = document.getElementById(id);
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 100;
-      window.scrollTo({ top, behavior: 'smooth' });
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     setActive(idx);
   }

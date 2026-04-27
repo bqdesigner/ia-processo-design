@@ -94,6 +94,7 @@
 
 /* ===== BODY ===== */
 .articleBody {
+  min-width: 0;
   font-size: clamp(17px, 1.25vw, 19px);
   line-height: 1.75;
   color: var(--color-mid);
